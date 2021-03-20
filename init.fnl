@@ -19,12 +19,18 @@
 (paq { 1 :tpope/vim-repeat })
 (paq { 1 :tpope/vim-surround })
 (paq { 1 :tpope/vim-commentary })
-(paq { 1 :nvim-telescope/telescope.nvim })
 (paq { 1 :itchyny/lightline.vim })
 (paq { 1 :ryanoasis/vim-devicons })
 (paq { 1 :airblade/vim-rooter })
-(paq { 1 :sharksforarms/vim-rust })
-;; (paq { 1 :neoclide/coc.nvim :branch :release })
+(paq { 1 :rust-lang/rust.vim })
+
+; telescope
+(paq { 1 :nvim-lua/popup.nvim })
+(paq { 1 :nvim-lua/plenary.nvim })
+(paq { 1 :nvim-telescope/telescope.nvim })
+; (paq { 1 "kyazdani42/nvim-web-devicons" })
+; (paq { 1 "kyazdani42/nvim-tree.lua" })
+;; (paq { 1 :neoclide/coc.nvim :branch :release }) ; waiting for autocmd for configuring this
 
 ;; post-package-load config
 (vim.cmd "colorscheme gruvbox")
@@ -124,6 +130,18 @@
 (map :n :<leader>g ::Rg<cr>)
 (map :n :<leader>t ::Tags<cr>)
 (map :n :<leader>m ::Marks<cr>)
+
+;; plug-config/telescope
+(local tp (require :telescope))
+(local actions (require :telescope.actions))
+
+(tp.setup { :defaults { :mappings { :i { "<esc>" actions.close } } } })
+
+;; Find files using Telescope command-line sugar.
+(map :n "<leader>ff" "<cmd>Telescope find_files<cr>")
+(map :n "<leader>fg" "<cmd>Telescope live_grep<cr>")
+(map :n "<leader>fb" "<cmd>Telescope buffers<cr>")
+(map :n "<leader>fh" "<cmd>Telescope help_tags<cr>")
 
 
 nil
