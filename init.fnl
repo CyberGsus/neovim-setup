@@ -134,14 +134,16 @@
 ;; plug-config/telescope
 (local tp (require :telescope))
 (local actions (require :telescope.actions))
+(local previewers (require :telescope.previewers))
 
-(tp.setup { :defaults { :mappings { :i { "<esc>" actions.close } } } })
+(tp.setup { :defaults { :mappings { :i { "<esc>" actions.close } }}})
 
 ;; Find files using Telescope command-line sugar.
 (map :n "<leader>ff" "<cmd>Telescope find_files<cr>")
 (map :n "<leader>fg" "<cmd>Telescope live_grep<cr>")
 (map :n "<leader>fb" "<cmd>Telescope buffers<cr>")
 (map :n "<leader>fh" "<cmd>Telescope help_tags<cr>")
+
 
 
 nil
