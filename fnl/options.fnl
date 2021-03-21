@@ -32,6 +32,7 @@
                   :hlsearch false
                   :ignorecase true
                   :smartcase true
+                  :completeopt "menuone,noinsert,noselect"
                   })
 
 

@@ -20,12 +20,16 @@
 (ts.setup { :ensure_installed "maintained" :highlight { :enable true } })
 
 ;; configure lsp client
-(local lsp (require :lspconfig))
-(local lspfuzzy (require :lspfuzzy))
+(local nvim-lsp (require :lspconfig))
+(local completion (require :completion))
 
-(lsp.ccls.setup {})
+(nvim-lsp.rust_analyzer.setup { :on_attach (lambda [client]
+                                             (completion.on_attach client)) })
+
+
+(nvim-lsp.ccls.setup {})
 ; (lsp.pyls.setup { :root_dir (lsp.util.root_patern ".git" (vim.fn.getcwd)) }) ;; err: property 'root_pattern' not found
-(lspfuzzy.setup {})
+; (lspfuzzy.setup {})
 
 ;; themes/lightline.vim
 (tset vim.g "lightline" { :colorscheme :gruvbox :active {
@@ -48,13 +52,6 @@
 (map :n "<space>m" "<cmd>lua vim.lsp.buf.rename()<CR>")
 (map :n "<space>r" "<cmd>lua vim.lsp.buf.references()<CR>")
 (map :n "<space>s" "<cmd>lua vim.lsp.buf.document_symbol()<CR>")
-
-;; plug-config/fzf
-(tset vim.g "fzf_action" { :ctrl-t "tab split"
-                           :ctrl-x "split"
-                           :ctrl-v  "vsplit" })
-
-(tset vim.g "fzf_history_dir" "~/.local/share/fzf-history")
 
 (map "" "<leader>f" ":Files<cr>")
 (map "" "<leader>b" ":Buffers<cr>")
