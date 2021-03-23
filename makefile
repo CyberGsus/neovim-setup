@@ -8,8 +8,11 @@ lua/%.lua: fnl/%.fnl
 
 
 .PHONY: all_files
+.PHONY: clean
 
 all_files: $(LUA_FILES)
 
+clean:
+	rm -rf lua
 
 all: all_files

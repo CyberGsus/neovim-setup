@@ -48,6 +48,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/lightline.vim"
   },
+  ["markdown-preview.nvim"] = {
+    loaded = true,
+    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
@@ -60,9 +64,17 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
   },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
+  },
+  ["packer.nvim"] = {
+    loaded = true,
+    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
@@ -87,6 +99,10 @@ _G.packer_plugins = {
   ["vim-commentary"] = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/vim-commentary"
+  },
+  ["vim-dispatch"] = {
+    loaded = true,
+    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/vim-dispatch"
   },
   ["vim-gitbranch"] = {
     loaded = true,

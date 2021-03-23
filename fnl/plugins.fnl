@@ -10,6 +10,7 @@
 
 ;; very inspired by https://github.com/codicocodes/dotfiles/blob/main/nvim/lua/plugins_setup.lua
 (fn packer_startup []
+  (use "wbthomason/packer.nvim") ; prevent packer from trying to suicide
   (use "morhetz/gruvbox")
   (use "airblade/vim-gitgutter")
   (use "APZelos/blamer.nvim")
@@ -25,45 +26,22 @@
   (use "nvim-lua/telescope.nvim")
   (use "jremmen/vim-ripgrep")
   ; ~telescope
-  (use "itchyny/lightline.vim")
-  (use "itchyny/vim-gitbranch")
-  (use "kyazdani42/nvim-web-devicons")
-  (use "kyazdani42/nvim-tree.lua")
-  (use "tpope/vim-commentary")
-  (use "tpope/vim-repeat")
-  (use "tpope/vim-surround")
-  (use "unblevable/quick-scope")
+  (use "itchyny/lightline.vim")             ; airline, but not so chunky
+  (use "itchyny/vim-gitbranch")             ; provides name of branch for lightline
+  (use "kyazdani42/nvim-web-devicons")      ; devicons for nvim-tree
+  (use "kyazdani42/nvim-tree.lua")          ; like nerdtree, but better
+  (use "tpope/vim-commentary")              ; commenting lines should be fast.
+  (use "tpope/vim-repeat")                  ; repeat <plug> commands
+  (use "tpope/vim-surround")                ; who said adding quotes and parenthesis had to be hard?
+  (use "unblevable/quick-scope")            ; highlight first letters of words to navigate the lines easier
   ; rust lsp
   (use "rust-lang/rust.vim")
+  ; markdown
+  (use { 1 "iamcco/markdown-preview.nvim" :run "cd app && yarn install" })
+  ; dispatch.vim
+  (use :tpope/vim-dispatch)
   )
 
 
 
 (packer.startup packer_startup)
-
-; (paq { 1 :savq/paq-nvim  :opt true })
-; (paq { 1 :shougo/deoplete-lsp })
-; (paq { 1 :shougo/deoplete.nvim :hook (. vim.fn :remote#host#UpdateRemotePlugins) })
-; (paq { 1 :nvim-treesitter/nvim-treesitter })
-; (paq { 1 :neovim/nvim-lspconfig })
-; (paq { 1 :neovim-lua/completion-nvim })
-; (paq { 1 :neovim-lua/lsp_extensions.nvim })
-; (paq { 1 :junegunn/fzf :hook (. vim.fn "fzf#install") })
-; (paq { 1 :junegunn/fzf.vim })
-; (paq { 1 :ojroques/nvim-lspfuzzy })
-; (paq { 1 :sheerun/vim-polyglot})
-; (paq { 1 :jiangmiao/auto-pairs})
-; (paq { 1 :morhetz/gruvbox })
-; (paq { 1 :tpope/vim-repeat })
-; (paq { 1 :tpope/vim-surround })
-; (paq { 1 :tpope/vim-commentary })
-; (paq { 1 :itchyny/lightline.vim })
-; (paq { 1 :ryanoasis/vim-devicons })
-; (paq { 1 :airblade/vim-rooter })
-; (paq { 1 :rust-lang/rust.vim })
-; (paq { 1 :unblevable/quick-scope })
-
-; ; telescope
-; (paq { 1 :nvim-lua/popup.nvim })
-; (paq { 1 :nvim-lua/plenary.nvim })
-; (paq { 1 :nvim-telescope/telescope.nvim })
