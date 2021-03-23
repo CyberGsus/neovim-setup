@@ -14,3 +14,8 @@ and therefore you can _maybe_ guess what it does but you'll have better understa
 
 Also note that the `fnl/` directory is mirrored into the `lua/` directory, except for the `lua/<dir>/init.lua` files which are generated
 by the makefile automatically so I don't miss any `require`s. The only job of those file is to source everything under the directory.
+
+
+# Dependencies
+
+Apart from `neovim`, `iamcco/markdown-preview` requires `yarn`  to be installed on your system in order to be installed.
