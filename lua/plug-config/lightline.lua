@@ -1,0 +1,2 @@
+vim.g["lightline"] = {active = {component = {charvaluehex = "0x%B", filename = "%f", modified = "%m"}, component_function = {gitbranch = "fugitive#head"}, left = {{"mode", "paste"}, {"cocstaus", "gitbranch", "readonly", "filename", "modified"}}, right = {{"lineinfo"}, {"charvaluehex"}, {"fileformat", "fileencoding", "filetype", "diagnostic"}}}, colorscheme = "gruvbox", separator = {left = "\238\130\176", right = "\238\130\178"}, subseparator = {left = "\238\130\177", right = "\238\130\179"}}
+return nil

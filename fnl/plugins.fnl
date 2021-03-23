@@ -14,7 +14,7 @@
   (use "morhetz/gruvbox")
   (use "airblade/vim-gitgutter")
   (use "APZelos/blamer.nvim")
-  (use "nvim-treesitter/nvim-treesitter" { :opt true })
+  (use {  1 "nvim-treesitter/nvim-treesitter"  :opt true })
   (use "sheerun/vim-polyglot")
   
   (use "neovim/nvim-lspconfig")
@@ -40,6 +40,7 @@
   (use { 1 "iamcco/markdown-preview.nvim" :run "cd app && yarn install" })
   ; dispatch.vim
   (use :tpope/vim-dispatch)
+  nil
   )
 
 

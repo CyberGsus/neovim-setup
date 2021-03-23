@@ -1,0 +1,6 @@
+require "keys/general"
+require "keys/nvim-tree"
+require "keys/lsp"
+require "keys/.map_fn"
+require "keys/map_fn"
+require "keys/telescope"
