@@ -1,6 +1,5 @@
 require "plug-config/nvim-lsp"
 require "plug-config/nvim-tree"
-require "plug-config/init"
 require "plug-config/treesitter"
 require "plug-config/lightline"
 require "plug-config/telescope"
