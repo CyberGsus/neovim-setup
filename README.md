@@ -18,4 +18,4 @@ by the makefile automatically so I don't miss any `require`s. The only job of th
 
 # Dependencies
 
-Apart from `neovim` version `0.5+`, `iamcco/markdown-preview` requires `yarn`  to be installed on your system in order to be installed.
+The only dependency here is `neovim` version `0.5+`.

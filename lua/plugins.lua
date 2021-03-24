@@ -25,7 +25,6 @@ local function packer_startup()
   use("tpope/vim-surround")
   use("unblevable/quick-scope")
   use("rust-lang/rust.vim")
-  use({"iamcco/markdown-preview.nvim", run = "cd app && yarn install"})
   use("tpope/vim-dispatch")
   return nil
 end

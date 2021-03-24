@@ -37,7 +37,7 @@
   ; rust lsp
   (use "rust-lang/rust.vim")
   ; markdown
-  (use { 1 "iamcco/markdown-preview.nvim" :run "cd app && yarn install" })
+;   (use { 1 "iamcco/markdown-preview.nvim" :run "cd app && yarn install" }) ; add this dep if you like, you'll need yarn
   ; dispatch.vim
   (use :tpope/vim-dispatch)
   nil
