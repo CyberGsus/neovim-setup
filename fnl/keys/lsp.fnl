@@ -8,3 +8,4 @@
 (map :n "<space>m" "<cmd>lua vim.lsp.buf.rename()<CR>")
 (map :n "<space>r" "<cmd>lua vim.lsp.buf.references()<CR>")
 (map :n "<space>s" "<cmd>lua vim.lsp.buf.document_symbol()<CR>")
+nil

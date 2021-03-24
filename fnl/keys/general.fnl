@@ -30,4 +30,7 @@
 (map :n :<c-l> :<c-w>l)
 
 ; always force write on opened files
-(map :c :w :w! { :noremap false })
+; don't do this! it behaves like :abbr on command buffer. (map :c :w :w! { :noremap false })
+; TODO: need to force write files when opening them, have to see why!
+
+nil

@@ -3,7 +3,7 @@
 (fn options [scope kvpairs]
   (each [ k v (pairs kvpairs) ]
     (tset (. scopes scope) k v))
-  )
+  nil)
 
 (local indent 2)
 
@@ -52,3 +52,4 @@
                   :smartindent true
                   :autoindent true
                   })
+nil

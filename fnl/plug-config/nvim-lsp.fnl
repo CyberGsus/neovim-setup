@@ -3,3 +3,5 @@
 
 (nvim-lsp.rust_analyzer.setup { :on_attach completion.on_attach })
 (nvim-lsp.ccls.setup { :on_attach completion.on_attach })
+(nvim-lsp.pyls.setup { :on_attach completion.on_attach })
+nil

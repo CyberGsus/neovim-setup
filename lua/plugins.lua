@@ -29,4 +29,5 @@ local function packer_startup()
   use("tpope/vim-dispatch")
   return nil
 end
-return packer.startup(packer_startup)
+packer.startup(packer_startup)
+return nil
