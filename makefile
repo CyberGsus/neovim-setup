@@ -4,7 +4,7 @@ INIT_FILES := $(patsubst fnl/%, lua/%/init.lua, $(shell find fnl -type d -and -n
 
 
 # make the init.lua files for further directories
-# automatically, skipping files starting with '+'.
+# automatically, so I don't miss any requires.
 lua/%/init.lua: fnl/%
 	@echo "Making init file $@"
 	@rm -f $@
