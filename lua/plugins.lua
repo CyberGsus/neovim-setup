@@ -1,8 +1,13 @@
-vim.cmd("packadd packer.nvim")
+local install_path = (vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim")
+if (vim.fn.empty(vim.fn.glob(install_path)) ~= 0) then
+  print("installing packer...")
+  vim.api.nvim_command(("!git clone https://github.com/wbthomason/packer.nvim " .. install_path))
+  vim.api.nvim_command("packadd packer.nvim")
+end
 local packer = require("packer")
 local util = require("packer.util")
 packer.init({package_root = util.join_paths(vim.fn.stdpath("data"), "site", "pack")})
-local function packer_startup()
+local function _1_()
   use("wbthomason/packer.nvim")
   use("morhetz/gruvbox")
   use("airblade/vim-gitgutter")
@@ -28,5 +33,5 @@ local function packer_startup()
   use("tpope/vim-dispatch")
   return nil
 end
-packer.startup(packer_startup)
+packer.startup(_1_)
 return nil

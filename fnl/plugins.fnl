@@ -1,4 +1,11 @@
-(vim.cmd "packadd packer.nvim")
+(local install_path (.. (vim.fn.stdpath "data") :/site/pack/packer/start/packer.nvim))
+
+; install packer automatically
+(if (not= (vim.fn.empty (vim.fn.glob install_path)) 0)
+  (do 
+    (print "installing packer...")
+    (vim.api.nvim_command (.. "!git clone https://github.com/wbthomason/packer.nvim " install_path))
+    (vim.api.nvim_command "packadd packer.nvim")))
 
 (local packer (require :packer))
 (local util (require :packer.util))
@@ -9,7 +16,9 @@
 
 
 ;; very inspired by https://github.com/codicocodes/dotfiles/blob/main/nvim/lua/plugins_setup.lua
-(fn packer_startup []
+
+
+(packer.startup (fn []
   (use "wbthomason/packer.nvim") ; prevent packer from trying to suicide
   (use "morhetz/gruvbox")
   (use "airblade/vim-gitgutter")
@@ -41,9 +50,5 @@
   ; dispatch.vim
   (use :tpope/vim-dispatch)
   nil
-  )
-
-
-
-(packer.startup packer_startup)
+  ))
 nil

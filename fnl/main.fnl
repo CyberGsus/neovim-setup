@@ -2,7 +2,7 @@
 
 
 ;; post-package-load config
-(vim.cmd "colorscheme gruvbox")
+(vim.api.nvim_command "colorscheme gruvbox")
 
 (require :options) ; general options
 
