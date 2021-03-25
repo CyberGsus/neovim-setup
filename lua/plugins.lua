@@ -7,9 +7,32 @@ end
 local packer = require("packer")
 local util = require("packer.util")
 packer.init({package_root = util.join_paths(vim.fn.stdpath("data"), "site", "pack")})
+local function telescope_deps(use)
+  use("nvim-lua/plenary.nvim")
+  use("nvim-lua/popup.nvim")
+  use("nvim-lua/telescope.nvim")
+  return nil
+end
+local function lightline_deps(use)
+  use("itchyny/lightline.vim")
+  use("itchyny/vim-gitbranch")
+  return nil
+end
+local function tpope(use)
+  use("tpope/vim-commentary")
+  use("tpope/vim-repeat")
+  use("tpope/vim-surround")
+  return nil
+end
+local function nvim_tree(use)
+  use("kyazdani42/nvim-web-devicons")
+  use("kyazdani42/nvim-tree.lua")
+  return nil
+end
 local function _1_()
   use("wbthomason/packer.nvim")
   use("morhetz/gruvbox")
+  lightline_deps(use)
   use("airblade/vim-gitgutter")
   use("APZelos/blamer.nvim")
   use({"nvim-treesitter/nvim-treesitter", opt = true})
@@ -17,20 +40,11 @@ local function _1_()
   use("neovim/nvim-lspconfig")
   use("nvim-lua/completion-nvim")
   use("anott03/nvim-lspinstall")
-  use("nvim-lua/popup.nvim")
-  use("nvim-lua/plenary.nvim")
-  use("nvim-lua/telescope.nvim")
-  use("jremmen/vim-ripgrep")
-  use("itchyny/lightline.vim")
-  use("itchyny/vim-gitbranch")
-  use("kyazdani42/nvim-web-devicons")
-  use("kyazdani42/nvim-tree.lua")
-  use("tpope/vim-commentary")
-  use("tpope/vim-repeat")
-  use("tpope/vim-surround")
+  telescope_deps(use)
+  tpope(use)
+  nvim_tree(use)
   use("unblevable/quick-scope")
   use("rust-lang/rust.vim")
-  use("tpope/vim-dispatch")
   return nil
 end
 packer.startup(_1_)
