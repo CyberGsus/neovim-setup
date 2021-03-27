@@ -16,6 +16,7 @@ end
 local function lightline_deps(use)
   use("itchyny/lightline.vim")
   use("itchyny/vim-gitbranch")
+  use("nvim-lua/lsp-status.nvim")
   return nil
 end
 local function tpope(use)

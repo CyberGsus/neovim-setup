@@ -24,6 +24,7 @@
 (fn lightline-deps [use]
   (use "itchyny/lightline.vim")             ; airline, but not so chunky
   (use "itchyny/vim-gitbranch")
+  (use :nvim-lua/lsp-status.nvim)           ; lsp status in lightline
   nil)             ; provides name of branch for lightline
 
 (fn tpope [use]
