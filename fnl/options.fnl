@@ -1,5 +1,11 @@
 (local scopes { :global vim.o :buffer vim.bo :window vim.wo })
 
+(fn is-in-table [tbl value]
+  (each [ _ v (ipairs tbl) ]
+    (when (= v value)
+      (lua "return true")))
+  false)
+
 (fn options [scope kvpairs]
   (each [ k v (pairs kvpairs) ]
     (tset (. scopes scope) k v))
@@ -46,10 +52,22 @@
                   :list true
                   })
 
+
 (options :buffer {
                   :tabstop indent
                   :shiftwidth indent
                   :smartindent true
                   :autoindent true
+                  :expandtab true
                   })
+
+
+; set no expand tab on makefile
+
+(vim.api.nvim_command "
+augroup MakefileSpecial
+autocmd FileType makefile set noet
+augroup end")
+
+
 nil
