@@ -1,4 +1,4 @@
-local map = require("keys/map_fn")
+local map = (require("utils")).map
 map("i", "<c-j>", "\\<c-n>", {expr = true})
 map("i", "<c-j>", "\\<c-p>", {expr = true})
 map("n", "<m-j>", ":resize -2<cr>")

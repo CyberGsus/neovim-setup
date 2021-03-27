@@ -2,5 +2,5 @@
 (local actions (require :telescope.actions))
 (local previewers (require :telescope.previewers))
 
-(tp.setup { :defaults { :mappings { :i { "<esc>" actions.close } }}})
+; (tp.setup { :defaults { :mappings { :i { "<esc>" actions.close } }}})
 nil

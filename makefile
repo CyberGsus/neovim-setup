@@ -8,7 +8,8 @@ INIT_FILES := $(patsubst fnl/%, lua/%/init.lua, $(shell find fnl -type d -and -n
 lua/%/init.lua: fnl/%
 	@echo "Making init file $@"
 	@rm -f $@
-	@find $(dir $@) -name '*.lua' -and -not -name 'init.lua' | sed -e \
+	@find $(dir $@) -maxdepth 1 -not -name 'init.lua' \
+		-not -wholename '$(dir $@)' | sed -e \
 		's/\.lua$$//;s+^lua/++;s/.*/require "\0"/' >> $@
 
 

@@ -1,5 +1,4 @@
-(local map (require :keys/map_fn))
-
+(local map (. (require :utils) :map))
 
 ; better nav for omnicomplete
 (map :i :<c-j> "\\<c-n>" { :expr true })
@@ -28,9 +27,5 @@
 (map :n :<c-j> :<c-w>j)
 (map :n :<c-k> :<c-w>k)
 (map :n :<c-l> :<c-w>l)
-
-; always force write on opened files
-; don't do this! it behaves like :abbr on command buffer. (map :c :w :w! { :noremap false })
-; TODO: need to force write files when opening them, have to see why!
 
 nil

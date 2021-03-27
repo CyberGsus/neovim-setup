@@ -16,11 +16,13 @@
                     :indicator_ok ""
                     :current_function true ; display & update current function
                     })
+
 (lsp-status.register_progress) ; register progress handler
 
 (nvim-lsp.rust_analyzer.setup { :on_attach on-attach :capabilities lsp-status.capabilities })
 (nvim-lsp.ccls.setup { :on_attach on-attach :capabilities lsp-status.capabilities })
 (nvim-lsp.pyls.setup { :on_attach on-attach :capabilities lsp-status.capabilities })
+; (nvim-lsp.lua.setup { :on_attach on-attach :capabilities lsp-status.capabilities })
 
 
 

@@ -40,34 +40,34 @@
 
 
 (packer.startup (fn []
-  (use "wbthomason/packer.nvim") ; prevent packer from trying to suicide
+                  (use "wbthomason/packer.nvim") ; prevent packer from trying to suicide
 
-  (use "morhetz/gruvbox")
-  (lightline-deps use)
-
-
-  (use "airblade/vim-gitgutter")
-  (use "APZelos/blamer.nvim")
-
-  (use { 1 "nvim-treesitter/nvim-treesitter"  :opt true })
-
-  (use "sheerun/vim-polyglot")              ; more syntax highlighting
-  
-  (use "neovim/nvim-lspconfig")
-  (use "nvim-lua/completion-nvim")
-  (use "anott03/nvim-lspinstall")
-
-  (telescope-deps use)
-  (tpope use)
-
-  (nvim-tree use)
+                  (use "morhetz/gruvbox")
+                  (lightline-deps use)
 
 
-  (use "unblevable/quick-scope")            ; highlight first letters of words to navigate the lines easier
-  ; rust lsp
-  (use "rust-lang/rust.vim")
-  ; markdown
-;   (use { 1 "iamcco/markdown-preview.nvim" :run "cd app && yarn install" }) ; add this dep if you like, you'll need yarn
-  nil
-  ))
+                  (use "airblade/vim-gitgutter")
+                  (use "APZelos/blamer.nvim")
+
+                  (use { 1 "nvim-treesitter/nvim-treesitter"  :opt true })
+
+                  (use "sheerun/vim-polyglot")              ; more syntax highlighting
+
+                  (use "neovim/nvim-lspconfig")
+                  (use "nvim-lua/completion-nvim")
+                  (use "anott03/nvim-lspinstall")
+
+                  (telescope-deps use)
+                  (tpope use)
+
+                  (nvim-tree use)
+
+
+                  (use "unblevable/quick-scope")            ; highlight first letters of words to navigate the lines easier
+                  ; rust lsp
+                  (use "rust-lang/rust.vim")
+                  ; markdown
+                  ;   (use { 1 "iamcco/markdown-preview.nvim" :run "cd app && yarn install" }) ; add this dep if you like, you'll need yarn
+                  nil
+                  ))
 nil

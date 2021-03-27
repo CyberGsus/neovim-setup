@@ -1,20 +1,6 @@
-(local scopes { :global vim.o :buffer vim.bo :window vim.wo })
+(local utils (require :utils))
 
-(fn is-in-table [tbl value]
-  (each [ _ v (ipairs tbl) ]
-    (when (= v value)
-      (lua "return true")))
-  false)
-
-(fn options [scope kvpairs]
-  (each [ k v (pairs kvpairs) ]
-    (tset (. scopes scope) k v))
-  nil)
-
-(local indent 2)
-
-
-(options :global {
+(utils.options :global {
                   :hidden true
                   :encoding "utf-8"
                   :ruler true
@@ -42,7 +28,7 @@
                   })
 
 
-(options :window {
+(utils.options :window {
                   :wrap false
                   :conceallevel 0
                   :cursorline true
@@ -53,7 +39,7 @@
                   })
 
 
-(options :buffer {
+(utils.options :buffer {
                   :tabstop indent
                   :shiftwidth indent
                   :smartindent true
