@@ -12,6 +12,7 @@
 
 
 (map :i :jk :<esc>)
+(map :v :jk :<esc>)
 
 ; tab completion
 (map :i :<tab> "pumvisible() ? \"\\<c-n>\" : \"\\<tab>\"" { :expr true })

@@ -3,6 +3,7 @@
                                                                [ :gitbranch :readonly :filename :modified ]
                                                                ]
                                                         :right [ [ :lineinfo ]
+                                                                [ :filetype ]
                                                                 ]
                                                         :component { :filename "%f" :modified "%m"   }
                                                         :component_function { :gitbranch "gitbranch#name" } }
