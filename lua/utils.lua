@@ -17,6 +17,23 @@ local function is_in_table(tbl, value)
   end
   return false
 end
+local function prefix_options(prefix, kvpairs)
+  local tbl = {}
+  for k, v in pairs(kvpairs) do
+    tbl[(prefix .. "_" .. k)] = v
+  end
+  return tbl
+end
+local function set_global(key, value)
+  vim.g[key] = value
+  return nil
+end
+local function set_globals(kvpairs)
+  for k, v in pairs(kvpairs) do
+    vim.g[k] = v
+  end
+  return nil
+end
 local function map(mode, lhs, rhs, more_options_3f)
   local options = {noremap = true}
   if more_options_3f then
@@ -31,4 +48,4 @@ local function options(scope, kvpairs)
   end
   return nil
 end
-return {["is-in-table"] = is_in_table, map = map, options = options}
+return {["is-in-table"] = is_in_table, ["prefix-options"] = prefix_options, ["set-global"] = set_global, ["set-globals"] = set_globals, map = map, options = options}

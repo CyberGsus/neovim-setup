@@ -45,6 +45,7 @@ local function _1_()
   tpope(use)
   nvim_tree(use)
   use("neovimhaskell/nvim-hs.vim")
+  use("scalameta/nvim-metals")
   use("unblevable/quick-scope")
   use("rust-lang/rust.vim")
   return nil

@@ -11,12 +11,4 @@ lsp_status.config({current_function = true, indicator_errors = "\239\153\152", i
 lsp_status.register_progress()
 nvim_lsp.rust_analyzer.setup({capabilities = lsp_status.capabilities, on_attach = on_attach})
 nvim_lsp.ccls.setup({capabilities = lsp_status.capabilities, on_attach = on_attach})
-nvim_lsp.pyls.setup({capabilities = lsp_status.capabilities, on_attach = on_attach})
-local function _0_()
-  if (#vim.lsp.buf_get_clients() > 0) then
-    return lsp_status.status()
-  else
-    return ""
-  end
-end
-return _0_
+return nvim_lsp.pyls.setup({capabilities = lsp_status.capabilities, on_attach = on_attach})

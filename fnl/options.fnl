@@ -12,7 +12,6 @@
                   :ignorecase true
                   :wildmode "list:longest"
                   :laststatus 2
-                  :background :dark
                   :showtabline 2
                   :showmode false
                   :backup false

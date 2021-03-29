@@ -1,4 +1,5 @@
-(tset vim.g :lightline { :colorscheme :gruvbox :active {
+(local utils (require :utils))
+(utils.set-global :lightline { :colorscheme :gruvbox :active {
                                                         :left [ [ :mode :paste ]
                                                                [ :gitbranch :filename :modified ]
                                                                ]

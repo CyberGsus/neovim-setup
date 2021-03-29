@@ -68,6 +68,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
   },
+  ["nvim-metals"] = {
+    loaded = true,
+    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/nvim-metals"
+  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
@@ -104,10 +108,6 @@ _G.packer_plugins = {
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/telescope.nvim"
-  },
-  ["vim-commentary"] = {
-    loaded = true,
-    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/vim-commentary"
   },
   ["vim-gitbranch"] = {
     loaded = true,

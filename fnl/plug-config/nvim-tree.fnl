@@ -1,7 +1,6 @@
-(fn nvim-tree-options [options]
-  (each [name opt (pairs options)]
-    (tset vim.g (.. :nvim_tree_ name) opt)))
-
+(local utils (require :utils))
+(fn nvim-tree-options [opts]
+  (utils.set-globals (utils.prefix-options :nvim_tree opts)))
 
 (nvim-tree-options {
                      :side "left"

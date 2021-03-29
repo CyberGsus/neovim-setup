@@ -25,8 +25,3 @@
 ; (nvim-lsp.lua.setup { :on_attach on-attach :capabilities lsp-status.capabilities })
 
 
-
-(fn []
-  (if (> (length (vim.lsp.buf_get_clients)) 0)
-    (lsp-status.status)
-    ""))
