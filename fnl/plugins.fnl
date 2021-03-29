@@ -28,7 +28,6 @@
   nil)             ; provides name of branch for lightline
 
 (fn tpope [use]
-  (use "tpope/vim-commentary")              ; commenting lines should be fast.
   (use "tpope/vim-repeat")                  ; repeat <plug> commands
   (use "tpope/vim-surround")                ; who said adding quotes and parenthesis had to be hard?
   nil)
@@ -44,6 +43,8 @@
 
                   (use "morhetz/gruvbox")
                   (lightline-deps use)
+
+                  (use :b3nj5m1n/kommentary)
 
 
                   (use "airblade/vim-gitgutter")
@@ -61,6 +62,8 @@
                   (tpope use)
 
                   (nvim-tree use)
+
+                  (use :neovimhaskell/nvim-hs.vim)
 
 
                   (use "unblevable/quick-scope")            ; highlight first letters of words to navigate the lines easier

@@ -1,3 +1,4 @@
+require "plug-config/kommentary"
 require "plug-config/nvim-lsp"
 require "plug-config/nvim-tree"
 require "plug-config/treesitter"

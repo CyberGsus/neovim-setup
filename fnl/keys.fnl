@@ -7,9 +7,8 @@
 ; use alt + hjkl to resize windows
 (map :n :<m-j> ":resize -2<cr>")
 (map :n :<m-k> ":resize +2<cr>")
-(map :n :<m-h> ":vertial resize -2<cr>")
-(map :n :<m-l> ":vertial resize +2<cr>")
-
+(map :n :<m-h> ":vertical resize -2<cr>")
+(map :n :<m-l> ":vertical resize +2<cr>")
 
 (map :i :jk :<esc>)
 (map :v :jk :<esc>)
