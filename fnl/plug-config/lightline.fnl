@@ -2,7 +2,11 @@
 
 (vim.cmd "
 function! GitHead()
-return ' ' . FugitiveHead()
+let head = FugitiveHead()
+if strchars(head) == 0
+ return ''
+end
+return ' ' . head
 endfunction")
 
 (utils.set-global :lightline { :colorscheme :gruvbox
