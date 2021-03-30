@@ -56,10 +56,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/lsp-status.nvim"
   },
-  ["nvim-hs.vim"] = {
-    loaded = true,
-    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/nvim-hs.vim"
-  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
@@ -68,9 +64,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
   },
-  ["nvim-metals"] = {
+  ["nvim-tree"] = {
     loaded = true,
-    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/nvim-metals"
+    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/nvim-tree"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
@@ -80,10 +76,6 @@ _G.packer_plugins = {
     loaded = false,
     needs_bufread = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/opt/nvim-treesitter"
-  },
-  ["nvim-web-devicons"] = {
-    loaded = true,
-    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -109,9 +101,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
-  ["vim-gitbranch"] = {
+  ["vim-fugitive"] = {
     loaded = true,
-    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/vim-gitbranch"
+    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/vim-fugitive"
   },
   ["vim-gitgutter"] = {
     loaded = true,
