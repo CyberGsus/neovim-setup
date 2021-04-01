@@ -9,6 +9,13 @@ local function convert_scope(scope)
     return "o"
   end
 end
+local function map(mode, lhs, rhs, more_options_3f)
+  local options = {noremap = true, silent = true}
+  if more_options_3f then
+    options = vim.tbl_extend("force", options, more_options_3f)
+  end
+  return vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
 local function is_in_table(tbl, value)
   for _, v in ipairs(tbl) do
     if (v == value) then
@@ -16,6 +23,12 @@ local function is_in_table(tbl, value)
     end
   end
   return false
+end
+local function make_command(name)
+  return (":" .. name .. "<cr>")
+end
+local function map_command(mode, lhs, rhs, more_options_3f)
+  return map(mode, lhs, make_command(rhs), more_options_3f)
 end
 local function prefix_options(prefix, kvpairs)
   local tbl = {}
@@ -34,13 +47,6 @@ local function set_globals(kvpairs)
   end
   return nil
 end
-local function map(mode, lhs, rhs, more_options_3f)
-  local options = {noremap = true}
-  if more_options_3f then
-    options = vim.tbl_extend("force", options, more_options_3f)
-  end
-  return vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
 local function options(scope, kvpairs)
   local converted_scope = vim[convert_scope(scope)]
   for k, v in pairs(kvpairs) do
@@ -48,4 +54,4 @@ local function options(scope, kvpairs)
   end
   return nil
 end
-return {["is-in-table"] = is_in_table, ["prefix-options"] = prefix_options, ["set-global"] = set_global, ["set-globals"] = set_globals, map = map, options = options}
+return {["is-in-table"] = is_in_table, ["make-command"] = make_command, ["map-command"] = map_command, ["prefix-options"] = prefix_options, ["set-global"] = set_global, ["set-globals"] = set_globals, map = map, options = options}

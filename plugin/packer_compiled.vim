@@ -40,6 +40,18 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/completion-nvim"
   },
+  fzf = {
+    loaded = true,
+    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/fzf"
+  },
+  ["fzf-lsp.nvim"] = {
+    loaded = true,
+    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/fzf-lsp.nvim"
+  },
+  ["fzf.vim"] = {
+    loaded = true,
+    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/fzf.vim"
+  },
   gruvbox = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/gruvbox"
@@ -64,10 +76,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
   },
-  ["nvim-tree"] = {
-    loaded = true,
-    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/nvim-tree"
-  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
@@ -77,17 +85,13 @@ _G.packer_plugins = {
     needs_bufread = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/opt/nvim-treesitter"
   },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/packer.nvim"
-  },
-  ["plenary.nvim"] = {
-    loaded = true,
-    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/plenary.nvim"
-  },
-  ["popup.nvim"] = {
-    loaded = true,
-    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/popup.nvim"
   },
   ["quick-scope"] = {
     loaded = true,
@@ -96,10 +100,6 @@ _G.packer_plugins = {
   ["rust.vim"] = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/rust.vim"
-  },
-  ["telescope.nvim"] = {
-    loaded = true,
-    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
   ["vim-fugitive"] = {
     loaded = true,

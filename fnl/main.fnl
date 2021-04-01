@@ -14,7 +14,7 @@
 (vim.api.nvim_command "colorscheme gruvbox")
 (utils.options :global { :background :dark })
 (utils.set-globals (utils.prefix-options :gruvbox {
-                                                   :contrast_dark :hard
+                                                   :contrast_dark :medium
                                                    :italic 1
                                                    }))
 nil
