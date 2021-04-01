@@ -29,6 +29,6 @@
 (map :n :<c-l> :<c-w>l)
 
 ; reload config
-(map :n :<leader>rc ":luafile ~/.config/nvim/init.vim")
+(map :n :<leader>rc ":luafile ~/.config/nvim/init.lua<cr>")
 
 nil
