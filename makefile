@@ -29,6 +29,6 @@ lua/%.lua: fnl/%.fnl
 all_files: $(LUA_FILES) $(INIT_FILES)
 
 clean:
-	rm -rf lua
+	@rm -rf lua
 
 all: all_files
