@@ -1,4 +1,4 @@
-(local map (. (require :utils) :map))
-(map :n :<leader>e ::NvimTreeToggle<cr>)
-(map :n :<leader>r ::NvimTreeRefresh<cr>)
+(local mapcmd (. (require :utils) :map-command))
+(mapcmd :n :<leader>e :NvimTreeToggle)
+(mapcmd :n :<leader>r :NvimTreeRefresh)
 nil
