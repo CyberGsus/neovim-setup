@@ -47,8 +47,6 @@
 
                   (use { 1 :nvim-treesitter/nvim-treesitter  :opt true })
 
-                  (use :sheerun/vim-polyglot)              ; more syntax highlighting
-
                   (use :neovim/nvim-lspconfig)
                   (use :nvim-lua/completion-nvim)
                   (use :anott03/nvim-lspinstall)

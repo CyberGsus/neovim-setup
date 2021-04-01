@@ -1,4 +1,5 @@
 (local map (. (require :utils) :map))
+(local mapcmd (. (require :utils) :map-command))
 
 ; better nav for omnicomplete
 (map :i :<c-j> "\\<c-n>" { :expr true })
@@ -29,6 +30,6 @@
 (map :n :<c-l> :<c-w>l)
 
 ; reload config
-(map :n :<leader>rc ":luafile ~/.config/nvim/init.lua<cr>")
+(mapcmd :n :<leader>rc "luafile ~/.config/nvim/init.lua" { :silent false })
 
 nil

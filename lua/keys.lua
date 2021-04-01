@@ -1,4 +1,5 @@
 local map = (require("utils")).map
+local mapcmd = (require("utils"))["map-command"]
 map("i", "<c-j>", "\\<c-n>", {expr = true})
 map("i", "<c-j>", "\\<c-p>", {expr = true})
 map("n", "<m-j>", ":resize -2<cr>")
@@ -14,5 +15,5 @@ map("n", "<c-h>", "<c-w>h")
 map("n", "<c-j>", "<c-w>j")
 map("n", "<c-k>", "<c-w>k")
 map("n", "<c-l>", "<c-w>l")
-map("n", "<leader>rc", ":luafile ~/.config/nvim/init.lua<cr>")
+mapcmd("n", "<leader>rc", "luafile ~/.config/nvim/init.lua", {silent = false})
 return nil
