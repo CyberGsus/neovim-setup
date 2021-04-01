@@ -40,17 +40,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/completion-nvim"
   },
-  fzf = {
-    loaded = true,
-    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/fzf"
-  },
   ["fzf-lsp.nvim"] = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/fzf-lsp.nvim"
-  },
-  ["fzf.vim"] = {
-    loaded = true,
-    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/fzf.vim"
   },
   gruvbox = {
     loaded = true,
@@ -93,6 +85,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/packer.nvim"
   },
+  ["plenary.nvim"] = {
+    loaded = true,
+    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+  },
+  ["popup.nvim"] = {
+    loaded = true,
+    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/popup.nvim"
+  },
   ["quick-scope"] = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/quick-scope"
@@ -101,6 +101,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/rust.vim"
   },
+  ["telescope.nvim"] = {
+    loaded = true,
+    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/telescope.nvim"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/vim-fugitive"
@@ -108,10 +112,6 @@ _G.packer_plugins = {
   ["vim-gitgutter"] = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/vim-gitgutter"
-  },
-  ["vim-polyglot"] = {
-    loaded = true,
-    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/vim-polyglot"
   },
   ["vim-repeat"] = {
     loaded = true,

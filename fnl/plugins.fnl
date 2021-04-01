@@ -32,11 +32,8 @@
 
                   (use { 1 :nvim-lua/telescope.nvim
                         :requires [ :nvim-lua/plenary.nvim :nvim-lua/popup.nvim ]
-                        :disabled true })
+                        })
 
-                  (use { 1 :junegunn/fzf
-                        :run (. vim.fn :fzf#install)})
-;                  (use :junegunn/fzf.vim)
                   (use :gfanto/fzf-lsp.nvim)
 
                   (use :b3nj5m1n/kommentary)

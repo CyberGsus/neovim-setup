@@ -11,6 +11,7 @@
 (map :n :<m-h> ":vertical resize -2<cr>")
 (map :n :<m-l> ":vertical resize +2<cr>")
 
+; the classic
 (map :i :jk :<esc>)
 (map :v :jk :<esc>)
 
@@ -30,6 +31,6 @@
 (map :n :<c-l> :<c-w>l)
 
 ; reload config
-(mapcmd :n :<leader>rc "luafile ~/.config/nvim/init.lua" { :silent false })
+(mapcmd :n :<leader>rc "lua require('main')")
 
 nil
