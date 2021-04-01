@@ -15,17 +15,17 @@
               })
 
 
-(packer.startup (fn []
+(packer.startup (fn packer-startup []
                   (use :wbthomason/packer.nvim) ; prevent packer from trying to suicide
 
-                  (use { 1 :kyazdani42/nvim-tree.lua
-                        :requires :kyazdani42/nvim-web-devicons})
+                  (use { 1 :kyazdani42/nvim-tree.lua :requires :kyazdani42/nvim-web-devicons})
 
                   (use :morhetz/gruvbox)
 
                   (use :tpope/vim-repeat)
                   (use :tpope/vim-surround)
                   (use :tpope/vim-fugitive)
+                  (use :tpope/vim-unimpaired)
 
                   (use :itchyny/lightline.vim)
                   (use :nvim-lua/lsp-status.nvim)
@@ -39,8 +39,6 @@
                   (use :b3nj5m1n/kommentary)
 
 
-                  (use :airblade/vim-gitgutter)
-                  (use :APZelos/blamer.nvim)
 
                   (use { 1 :nvim-treesitter/nvim-treesitter  :opt true })
 
@@ -53,6 +51,5 @@
                   (use :rust-lang/rust.vim)
                   ; markdown
                   ;   (use { 1 "iamcco/markdown-preview.nvim" :run "cd app && yarn install" }) ; add this dep if you like, you'll need yarn
-                  nil
-                  ))
+                  nil))
 nil
