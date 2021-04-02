@@ -3,6 +3,7 @@ LUA_FILES := $(patsubst fnl/%.fnl, lua/%.lua, $(FNL_FILES))
 INIT_FILES := $(patsubst fnl/%, lua/%/init.lua, $(shell find fnl -type d -and -not -name 'fnl'))
 
 
+
 # make the init.lua files for further directories
 # automatically, so I don't miss any requires.
 lua/%/init.lua: fnl/%
