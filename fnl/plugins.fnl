@@ -43,7 +43,7 @@
 
                   (use { 1 :nvim-treesitter/nvim-treesitter })
 
-                  (use :mfussenger/nvim-dap) ; prints don't always work...
+                  (use :mfussenegger/nvim-dap) ; prints don't always work...
                   (use :neovim/nvim-lspconfig)
                   (use :nvim-lua/completion-nvim)
                   (use :anott03/nvim-lspinstall)

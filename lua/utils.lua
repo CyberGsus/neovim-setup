@@ -55,4 +55,11 @@ local function prefix_options(prefixes, kvpairs)
   end
   return tbl
 end
+local function env()
+  local variables = {}
+  for k, v in pairs(vim.fn.environ()) do
+    table.insert(variables, string.format("%s=%s", k, v))
+  end
+  return variables
+end
 return {["is-in-table"] = is_in_table, ["make-command"] = make_command, ["map-command"] = map_command, ["prefix-options"] = prefix_options, ["set-global"] = set_global, ["set-globals"] = set_globals, map = map, options = options}

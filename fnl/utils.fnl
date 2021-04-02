@@ -56,6 +56,12 @@
     (tset tbl (.. built-prefix k) v))
   tbl)
 
+; gets environment variables
+(fn env []
+  (var variables {})
+  (each [ k v (pairs (vim.fn.environ)) ]
+    (table.insert variables (string.format :%s=%s k v)))
+  variables)
 
 {
 
