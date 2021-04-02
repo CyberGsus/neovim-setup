@@ -14,6 +14,7 @@
 
 (lsp-status.register_progress) ; register progress handler
 
+; for lightline
 (vim.cmd "
 function! LspStatus() abort
   if luaeval('#vim.lsp.buf_get_clients() > 0')

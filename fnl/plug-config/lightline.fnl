@@ -1,13 +1,14 @@
 (local utils (require :utils))
 
+; add branch NF icon to branch name.
 (vim.cmd "
-function! GitHead()
-let head = FugitiveHead()
-if strchars(head) == 0
- return ''
-end
-return ' ' . head
-endfunction")
+         function! GitHead()
+         let head = FugitiveHead()
+         if strchars(head) == 0
+         return ''
+         end
+         return ' ' . head
+         endfunction")
 
 (utils.set-global :lightline { :colorscheme :gruvbox
                               :active {
@@ -16,12 +17,17 @@ endfunction")
                                               ]
                                        :right [ [ :lineinfo ]
                                                [ :filetype ]
+                                               [ :charvaluehex ]
                                                ]
                                        }
+                              :component { :charvaluehex "0x%B" }
                               :component_function { :gitbranch :GitHead
                                                    :lsp :LspStatus }
                               :separator { :left "" :right "" }
-                              :subseparator { :left "" :right "" }})
+                              :subseparator {
+                                             :left ""
+                                             :right ""
+                                             }})
 
 
 nil
