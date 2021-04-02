@@ -30,6 +30,9 @@
                   (use :itchyny/lightline.vim)
                   (use :nvim-lua/lsp-status.nvim)
 
+                  (use { 1 :junegunn/fzf :run vim.fn.fzf#install })
+                  (use :junegunn/fzf.vim)
+
                   (use { 1 :nvim-lua/telescope.nvim
                         :requires [ :nvim-lua/plenary.nvim :nvim-lua/popup.nvim ]
                         })
@@ -38,9 +41,7 @@
 
                   (use :b3nj5m1n/kommentary)
 
-
-
-                  (use { 1 :nvim-treesitter/nvim-treesitter  :opt true })
+                  (use { 1 :nvim-treesitter/nvim-treesitter })
 
                   (use :neovim/nvim-lspconfig)
                   (use :nvim-lua/completion-nvim)

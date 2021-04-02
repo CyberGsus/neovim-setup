@@ -32,17 +32,21 @@ local function try_loadstring(s, component, name)
 end
 
 _G.packer_plugins = {
-  ["blamer.nvim"] = {
-    loaded = true,
-    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/blamer.nvim"
-  },
   ["completion-nvim"] = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/completion-nvim"
   },
+  fzf = {
+    loaded = true,
+    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/fzf"
+  },
   ["fzf-lsp.nvim"] = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/fzf-lsp.nvim"
+  },
+  ["fzf.vim"] = {
+    loaded = true,
+    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/fzf.vim"
   },
   gruvbox = {
     loaded = true,
@@ -109,10 +113,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/vim-fugitive"
   },
-  ["vim-gitgutter"] = {
-    loaded = true,
-    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/vim-gitgutter"
-  },
   ["vim-repeat"] = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/vim-repeat"
@@ -120,6 +120,10 @@ _G.packer_plugins = {
   ["vim-surround"] = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/vim-surround"
+  },
+  ["vim-unimpaired"] = {
+    loaded = true,
+    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/vim-unimpaired"
   }
 }
 

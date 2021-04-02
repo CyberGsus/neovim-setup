@@ -24,18 +24,18 @@ local function is_in_table(tbl, value)
   end
   return false
 end
+local function options(scope, kvpairs)
+  local scope_tbl = vim[convert_scope(scope)]
+  for k, v in pairs(kvpairs) do
+    scope_tbl[k] = v
+  end
+  return nil
+end
 local function make_command(name)
   return (":" .. name .. "<cr>")
 end
 local function map_command(mode, lhs, rhs, more_options_3f)
-  return map(mode, lhs, make_command(rhs), more_options_3f)
-end
-local function prefix_options(prefix, kvpairs)
-  local tbl = {}
-  for k, v in pairs(kvpairs) do
-    tbl[(prefix .. "_" .. k)] = v
-  end
-  return tbl
+  return map(mode, lhs, make_command(rhs, more_options_3f))
 end
 local function set_global(key, value)
   vim.g[key] = value
@@ -47,11 +47,12 @@ local function set_globals(kvpairs)
   end
   return nil
 end
-local function options(scope, kvpairs)
-  local converted_scope = vim[convert_scope(scope)]
+local function prefix_options(prefixes, kvpairs)
+  local tbl = {}
+  local built_prefix = (table.concat(prefixes, "_") .. "_")
   for k, v in pairs(kvpairs) do
-    converted_scope[k] = v
+    tbl[(built_prefix .. k)] = v
   end
-  return nil
+  return tbl
 end
 return {["is-in-table"] = is_in_table, ["make-command"] = make_command, ["map-command"] = map_command, ["prefix-options"] = prefix_options, ["set-global"] = set_global, ["set-globals"] = set_globals, map = map, options = options}

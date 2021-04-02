@@ -1,3 +1,5 @@
+; instead of 'o', 'bo' and 'wo' I have 'global' 'buffer' and 'window' which increase
+; readability
 (fn convert-scope [scope]
   (if (= scope :global)
     :o
@@ -13,39 +15,63 @@
           (set options (vim.tbl_extend :force options more-options?)))
         (vim.api.nvim_set_keymap mode lhs rhs options))
 
+(fn is-in-table [tbl value]
+  (each [ _ v (ipairs tbl) ]
+    (when (= v value)
+      (lua "return true")))
+  false)
+
+(fn options [scope kvpairs]
+  (let [ scope-tbl (. vim (convert-scope scope)) ]
+    (each [ k v (pairs kvpairs) ]
+      (tset scope-tbl k v))))
+
+
+; gets a name (string) and
+; converts it to a command string,
+; e.g 'echo hello' -> ':echo hello<cr>'
+(fn make-command [name]
+  (.. :: name :<cr>))
+
+(fn map-command [mode lhs rhs more-options?]
+  (map mode lhs (make-command rhs more-options?)))
+
+(fn set-global [key value]
+  (tset vim.g key value))
+
+
+(fn set-globals [kvpairs]
+  (each [ k v (pairs kvpairs) ]
+    (tset vim.g k v)))
+
+
+; gets a list of prefixes, e.g [ :nvim :tree ] and a table of
+; options such as { :a 1 :b 2 } then it returns { :nvim_tree_a 1 :nvim_tree_b 2 }
+(fn prefix-options [prefixes kvpairs]
+  (var tbl {})
+  (local built-prefix (-> prefixes
+                           (table.concat :_)
+                           (.. :_)))
+  (each [ k v (pairs kvpairs) ]
+    (tset tbl (.. built-prefix k) v))
+  tbl)
 
 
 {
 
- :is-in-table (fn is-in-table [tbl value]
-                (each [ _ v (ipairs tbl) ]
-                  (when (= v value)
-                    (lua "return true")))
-                false)
+ :is-in-table is-in-table
 
- :options (fn options [scope kvpairs]
-            (let [ converted-scope (. vim (convert-scope scope)) ]
-              (each [ k v (pairs kvpairs) ]
-                (tset converted-scope k v))))
+ :options options
 
  :map map
- :map-command (fn map-command [mode lhs rhs more-options?]
-                (map mode lhs (make-command rhs) more-options?))
- :set-global (fn set-global [key value]
-               (tset vim.g key value))
+ :map-command map-command
+
+ :set-global set-global
+
+ :set-globals set-globals
 
 
- :set-globals (fn set-globals [kvpairs]
-                (each [ k v (pairs kvpairs) ]
-                  (tset vim.g k v)))
+ :make-command make-command
 
- :make-command (fn make-command [name]
-                 (.. ":" name "<cr>"))
-
- :prefix-options (fn prefix-options [prefix kvpairs]
-                   (var tbl {})
-                   (each [ k v (pairs kvpairs) ]
-                     (tset tbl (.. prefix "_" k) v))
-                   tbl)
-
+ :prefix-options prefix-options
  }

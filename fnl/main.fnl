@@ -13,7 +13,7 @@
 ; theming
 (vim.api.nvim_command "colorscheme gruvbox")
 (utils.options :global { :background :dark })
-(utils.set-globals (utils.prefix-options :gruvbox {
+(utils.set-globals (utils.prefix-options [ :gruvbox ] {
                                                    :contrast_dark :medium
                                                    :italic 1
                                                    }))
