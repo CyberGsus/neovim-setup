@@ -62,4 +62,27 @@ local function env()
   end
   return variables
 end
-return {["is-in-table"] = is_in_table, ["make-command"] = make_command, ["map-command"] = map_command, ["prefix-options"] = prefix_options, ["set-global"] = set_global, ["set-globals"] = set_globals, map = map, options = options}
+local function merge_tables(a, b)
+  local function is_type(v, type_name)
+    return (type(v) == type_name)
+  end
+  local function both_have_type(a0, b0, type_name)
+    return (is_type(a0, type_name) and is_type(b0, type_name))
+  end
+  local merged = {}
+  for k, v in pairs(a) do
+    merged[k] = v
+  end
+  for k, v in pairs(b) do
+    local other_value = a[k]
+    local _0_
+    if both_have_type(v, other_value, "table") then
+      _0_ = merge_tables(v, other_value)
+    else
+      _0_ = v
+    end
+    merged[k] = _0_
+  end
+  return merged
+end
+return {["is-in-table"] = is_in_table, ["make-command"] = make_command, ["map-command"] = map_command, ["merge-tables"] = merge_tables, ["prefix-options"] = prefix_options, ["set-global"] = set_global, ["set-globals"] = set_globals, map = map, options = options}

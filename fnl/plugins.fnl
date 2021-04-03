@@ -41,6 +41,7 @@
 
                   (use :b3nj5m1n/kommentary)
 
+                  ; best highlighter I've found
                   (use { 1 :nvim-treesitter/nvim-treesitter })
 
                   (use :mfussenegger/nvim-dap) ; prints don't always work...
