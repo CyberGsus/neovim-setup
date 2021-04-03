@@ -30,6 +30,8 @@
 (map :n :<c-k> :<c-w>k)
 (map :n :<c-l> :<c-w>l)
 
+
+
 ; reload config
 (mapcmd :n :<leader>rc "lua require('main')")
 

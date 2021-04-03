@@ -1,6 +1,7 @@
 require "plug-config/kommentary"
 require "plug-config/nvim-lsp"
 require "plug-config/nvim-tree"
+require "plug-config/vim-fugitive"
 require "plug-config/treesitter"
 require "plug-config/lightline"
 require "plug-config/fzf"
