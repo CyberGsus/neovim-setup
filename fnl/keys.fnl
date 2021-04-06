@@ -5,11 +5,11 @@
 (map :i :<c-j> "\\<c-n>" { :expr true })
 (map :i :<c-j> "\\<c-p>" { :expr true })
 
-; use alt + hjkl to resize windows
-(map :n :<m-j> ":resize -2<cr>")
-(map :n :<m-k> ":resize +2<cr>")
-(map :n :<m-h> ":vertical resize -2<cr>")
-(map :n :<m-l> ":vertical resize +2<cr>")
+; make alt useful
+(map :n :<m-j> :<c-w>j)
+(map :n :<m-k> :<c-w>k)
+(map :n :<m-h> :<c-w>h)
+(map :n :<m-l> :<c-w>l)
 
 ; the classic
 (map :i :jk :<esc>)
@@ -24,15 +24,19 @@
 (map :v :> :>gv)
 
 
-; better window navigation
-(map :n :<c-h> :<c-w>h)
-(map :n :<c-j> :<c-w>j)
-(map :n :<c-k> :<c-w>k)
-(map :n :<c-l> :<c-w>l)
+; :help update
+(mapcmd :n :<leader>w :update { :silent false })
 
 
+; quickfix list, from primeagen's video: https://www.youtube.com/watch?v=IoyW8XYGqjM
+; global
+(mapcmd :n :<c-j> :cprev)
+(mapcmd :n :<c-k> :cnext)
+; local
+(mapcmd :n :<leader>j :lprev)
+(mapcmd :n :<leader>k :lnext)
 
-; reload config
+; reload config FIXME: I don't work!
 (mapcmd :n :<leader>rc "lua require('main')")
 
 nil

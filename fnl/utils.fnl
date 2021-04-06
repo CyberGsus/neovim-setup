@@ -10,10 +10,10 @@
     :o))
 
 (fn map [mode lhs rhs more-options?]
-        (var options { :noremap true :silent true })
-        (if more-options?
-          (set options (vim.tbl_extend :force options more-options?)))
-        (vim.api.nvim_set_keymap mode lhs rhs options))
+  (var options { :noremap true :silent true })
+  (if more-options?
+    (set options (vim.tbl_extend :force options more-options?)))
+  (vim.api.nvim_set_keymap mode lhs rhs options))
 
 (fn is-in-table [tbl value]
   (each [ _ v (ipairs tbl) ]
@@ -50,8 +50,8 @@
 (fn prefix-options [prefixes kvpairs]
   (var tbl {})
   (local built-prefix (-> prefixes
-                           (table.concat :_)
-                           (.. :_)))
+                          (table.concat :_)
+                          (.. :_)))
   (each [ k v (pairs kvpairs) ]
     (tset tbl (.. built-prefix k) v))
   tbl)
@@ -75,9 +75,11 @@
   (each [ k v (pairs b) ]
     (let [ other-value (. a k) ]
       (tset merged k (if (both-have-type v other-value :table)
-        (merge-tables v other-value)
-        v))))
+                       (merge-tables v other-value)
+                       v))))
   merged)
+
+; Exports
 {
 
  :is-in-table is-in-table

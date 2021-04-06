@@ -1,58 +1,89 @@
-(local install_path (.. (vim.fn.stdpath "data") :/site/pack/packer/start/packer.nvim))
-
-; install packer automatically if not present
-(if (not= (vim.fn.empty (vim.fn.glob install_path)) 0)
-  (do
+; install & load packer if not present
+(let [ data-path (vim.fn.stdpath :data)
+      install-path (.. data-path :/site/pack/packer/start/packer.nvim) 
+      expanded-path (vim.fn.glob install-path) ]
+  (when (not= (vim.fn.empty expanded-path) 0)
     (print "installing packer...")
-    (vim.api.nvim_command (.. "!git clone https://github.com/wbthomason/packer.nvim" " " install_path))
+    (vim.api.nvim_command (.. "!git clone https://github.com/wbthomason/packer.nvim " install-path))
     (vim.api.nvim_command "packadd packer.nvim")))
 
+; this giant macro removes
+; the need to use { 1 name }
+; when using `use` with a configuration
+(macro use-pkg [name config?]
+  (fn merge-tables [a b]
+    (fn is-type [v type-name]
+      (= (type v) type-name))
+
+    (fn both-have-type [a b type-name]
+      (and (is-type a type-name) (is-type b type-name)))
+    (var merged {})
+    (each [ k v (pairs a) ]
+      (tset merged k v))
+    (each [ k v (pairs b) ]
+      (let [ other-value (. a k) ]
+        (tset merged k (if (both-have-type v other-value :table)
+                         (merge-tables v other-value)
+                         v))))
+    merged)
+   (assert name "expected a name")
+  (if config?
+    (let [ final-config (merge-tables { 1 name } config?) ]
+      `(use ,final-config))
+    `(use ,name)))
+
 (local packer (require :packer))
-(local util (require :packer.util))
 
-(packer.init {
-              :package_root (util.join_paths (vim.fn.stdpath "data") "site" "pack")
-              })
+(packer.startup (fn packer-startup [use]
+                  (use-pkg :wbthomason/packer.nvim) ; prevent packer from suiciding
+
+                  ; theming
+                  (use-pkg :morhetz/gruvbox)
+                  (use-pkg :itchyny/lightline.vim)
+
+                  ; syntax highlight
+                  (use-pkg :nvim-treesitter/nvim-treesitter)
+
+                  ; tpope essentials
+                  (use-pkg :tpope/vim-repeat)
+                  (use-pkg :tpope/vim-surround)
+                  (use-pkg :tpope/vim-fugitive) ; git
+                  (use-pkg :tpope/vim-unimpaired)
+
+                  ; commentary-like
+                  (use-pkg :b3nj5m1n/kommentary)
+
+                  ; moving around
+                  (use-pkg :kyazdani42/nvim-tree.lua { :requires :kyazdani42/nvim-web-devicons })
+                  (use-pkg :junegunn/fzf { :run vim.fn.fzf#install })
+                  (use-pkg :junegunn/fzf.vim)
+                  (use-pkg :unblevable/quick-scope)
+
+                  ; lsp
+                  (use-pkg :nvim-lua/lsp-status.nvim)
+                  (use-pkg :nvim-lua/nvim-lspconfig)
+                  (use-pkg :nvim-lua/completion-nvim)
 
 
-(packer.startup (fn packer-startup []
-                  (use :wbthomason/packer.nvim) ; prevent packer from trying to suicide
-
-                  (use { 1 :kyazdani42/nvim-tree.lua :requires :kyazdani42/nvim-web-devicons})
-
-                  (use :morhetz/gruvbox)
-
-                  (use :tpope/vim-repeat)
-                  (use :tpope/vim-surround)
-                  (use :tpope/vim-fugitive)
-                  (use :tpope/vim-unimpaired)
-
-                  (use :itchyny/lightline.vim)
-                  (use :nvim-lua/lsp-status.nvim)
-
-                  (use { 1 :junegunn/fzf :run vim.fn.fzf#install })
-                  (use :junegunn/fzf.vim)
-
-                  (use { 1 :nvim-lua/telescope.nvim
-                        :requires [ :nvim-lua/plenary.nvim :nvim-lua/popup.nvim ]
-                        })
-
-                  (use :gfanto/fzf-lsp.nvim)
-
-                  (use :b3nj5m1n/kommentary)
-
-                  ; best highlighter I've found
-                  (use { 1 :nvim-treesitter/nvim-treesitter })
-
-                  (use :mfussenegger/nvim-dap) ; prints don't always work...
-                  (use :neovim/nvim-lspconfig)
-                  (use :nvim-lua/completion-nvim)
-                  (use :anott03/nvim-lspinstall)
-
-                  (use :unblevable/quick-scope)            ; highlight first letters of words to navigate the lines easier
-                  ; rust lsp
-                  (use :rust-lang/rust.vim)
-                  ; markdown
-                  ;   (use { 1 "iamcco/markdown-preview.nvim" :run "cd app && yarn install" }) ; add this dep if you like, you'll need yarn
                   nil))
+
+; after startup
+(macro setup-config [name]
+  `(require ,(.. :plug-config/ name)))
+
+(macro setup-keys [name]
+  `(require ,(.. :plug-config/keys/ name)))
+
+(setup-config :gruvbox)
+(setup-config :kommentary)
+(setup-config :lightline)
+(setup-config :nvim-lsp)
+(setup-config :nvim-tree)
+(setup-config :treesitter)
+
+(setup-keys :fzf)
+(setup-keys :lsp)
+(setup-keys :nvim-tree)
+(setup-keys :vim-fugitive)
+
 nil
