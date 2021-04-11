@@ -12,7 +12,6 @@ lsp_status.register_progress()
 vim.cmd("\nfunction! LspStatus() abort\n  if luaeval('#vim.lsp.buf_get_clients() > 0')\n    return luaeval(\"require('lsp-status').status()\")\n  endif\nreturn ''\nendfunction")
 local default_options = {capabilities = lsp_status.capabilities, on_attach = on_attach}
 nvim_lsp.rust_analyzer.setup(default_options)
-nvim_lsp.ccls.setup(default_options)
 nvim_lsp.pyls.setup(default_options)
 nvim_lsp.metals.setup(default_options)
 return nvim_lsp.hls.setup(default_options)

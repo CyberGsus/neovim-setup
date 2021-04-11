@@ -39,7 +39,9 @@
 
                   ; theming
                   (use-pkg :morhetz/gruvbox)
-                  (use-pkg :itchyny/lightline.vim)
+                  ;(use-pkg :itchyny/lightline.vim)
+                  (use-pkg :glepnir/galaxyline.nvim)
+                  (use-pkg :akinsho/nvim-bufferline.lua { :requires :kyazdani42/nvim-web-devicons })
 
                   ; syntax highlight
                   (use-pkg :nvim-treesitter/nvim-treesitter)
@@ -74,12 +76,14 @@
 (macro setup-keys [name]
   `(require ,(.. :plug-config/keys/ name)))
 
-(setup-config :gruvbox)
+(setup-config :theme)
 (setup-config :kommentary)
-(setup-config :lightline)
+;(setup-config :lightline)
+(setup-config :eviline)
 (setup-config :nvim-lsp)
 (setup-config :nvim-tree)
 (setup-config :treesitter)
+((. (require :bufferline) :setup))
 
 (setup-keys :fzf)
 (setup-keys :lsp)

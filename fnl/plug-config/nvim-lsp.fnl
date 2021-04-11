@@ -29,7 +29,7 @@ endfunction")
 ; rust
 (nvim-lsp.rust_analyzer.setup default-options)
 ; c/cpp
-(nvim-lsp.ccls.setup default-options)
+; (nvim-lsp.ccls.setup default-options)
 ; python
 (nvim-lsp.pyls.setup default-options)
 ; scala

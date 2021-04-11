@@ -24,6 +24,7 @@
                   :ignorecase true
                   :smartcase true
                   :completeopt "menuone,noinsert,noselect"
+                  :termguicolors true
                   })
 
 

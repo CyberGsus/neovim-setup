@@ -44,6 +44,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/fzf.vim"
   },
+  ["galaxyline.nvim"] = {
+    loaded = true,
+    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
+  },
   gruvbox = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/gruvbox"
@@ -52,13 +56,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/kommentary"
   },
-  ["lightline.vim"] = {
-    loaded = true,
-    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/lightline.vim"
-  },
   ["lsp-status.nvim"] = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/lsp-status.nvim"
+  },
+  ["nvim-bufferline.lua"] = {
+    loaded = true,
+    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/nvim-bufferline.lua"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
