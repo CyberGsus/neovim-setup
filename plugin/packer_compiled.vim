@@ -32,6 +32,10 @@ local function try_loadstring(s, component, name)
 end
 
 _G.packer_plugins = {
+  ["auto-pairs"] = {
+    loaded = true,
+    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/auto-pairs"
+  },
   ["completion-nvim"] = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/completion-nvim"
@@ -43,10 +47,6 @@ _G.packer_plugins = {
   ["fzf.vim"] = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/fzf.vim"
-  },
-  ["galaxyline.nvim"] = {
-    loaded = true,
-    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
   },
   gruvbox = {
     loaded = true,
@@ -60,9 +60,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/lsp-status.nvim"
   },
-  ["nvim-bufferline.lua"] = {
+  ["lualine.nvim"] = {
     loaded = true,
-    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/nvim-bufferline.lua"
+    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/lualine.nvim"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -99,10 +99,6 @@ _G.packer_plugins = {
   ["vim-surround"] = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/vim-surround"
-  },
-  ["vim-unimpaired"] = {
-    loaded = true,
-    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/vim-unimpaired"
   }
 }
 

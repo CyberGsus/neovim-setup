@@ -2,8 +2,8 @@
 (local mapcmd (. (require :utils) :map-command))
 
 ; better nav for omnicomplete
-(map :i :<c-j> "\\<c-n>" { :expr true })
-(map :i :<c-j> "\\<c-p>" { :expr true })
+(map :i :<c-j> "\\<c-n>" {:expr true})
+(map :i :<c-j> "\\<c-p>" {:expr true})
 
 ; make alt useful
 (map :n :<m-j> :<c-w>j)
@@ -16,17 +16,14 @@
 (map :v :jk :<esc>)
 
 ; tab completion
-(map :i :<tab> "pumvisible() ? \"\\<c-n>\" : \"\\<tab>\"" { :expr true })
-
+(map :i :<tab> "pumvisible() ? \"\\<c-n>\" : \"\\<tab>\"" {:expr true})
 
 ; better tabbing
-(map :v :< :<gv)
-(map :v :> :>gv)
-
+(map :v "<" :<gv)
+(map :v ">" :>gv)
 
 ; :help update
-(mapcmd :n :<leader>w :update { :silent false })
-
+(mapcmd :n :<leader>w :update {:silent false})
 
 ; quickfix list, from primeagen's video: https://www.youtube.com/watch?v=IoyW8XYGqjM
 ; global
@@ -36,7 +33,6 @@
 (mapcmd :n :<leader>j :lprev)
 (mapcmd :n :<leader>k :lnext)
 
-; reload config FIXME: I don't work!
 (mapcmd :n :<leader>rc "lua require('main')")
 
 nil

@@ -10,21 +10,12 @@
          return ' ' . head
          endfunction")
 
-(utils.set-global :lightline { :colorscheme :gruvbox
-                              :active {
-                                       :left [ [ :mode :paste ]
-                                              [ :gitbranch :filename :modified :lsp ]
-                                              ]
-                                       :right [ [ :lineinfo ]
-                                               [ :filetype ]
-                                               [ :charvaluehex ]
-                                               ]
-                                       }
-                              :component { :charvaluehex "0x%B" }
-                              :component_function { :gitbranch :GitHead
-                                                   :lsp :LspStatus }
-                              :separator { :left "" :right "" }
-                              :subseparator {
-                                             :left ""
-                                             :right ""
-                                             }})
+(utils.set-global :lightline
+                  {:colorscheme :gruvbox
+                   :active {:left [[:mode :paste]
+                                   [:gitbranch :filename :modified :lsp]]
+                            :right [[:lineinfo] [:filetype] [:charvaluehex]]}
+                   :component {:charvaluehex "0x%B"}
+                   :component_function {:gitbranch :GitHead :lsp :LspStatus}
+                   :separator {:left "" :right ""}
+                   :subseparator {:left "" :right ""}})

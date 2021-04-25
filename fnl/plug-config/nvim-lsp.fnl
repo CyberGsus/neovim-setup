@@ -4,15 +4,17 @@
 
 (fn on-attach [client]
   (doto client
-        (completion.on_attach)
-        (lsp-status.on_attach)))
+    (completion.on_attach)
+    (lsp-status.on_attach))
+  nil)
 
-
-(lsp-status.config {
-                    :current_function true ; display & update current function
+(lsp-status.config {:current_function true
+                    ; display & update current function
                     })
 
-(lsp-status.register_progress) ; register progress handler
+(lsp-status.register_progress)
+
+; register progress handler
 
 ; for lightline
 (vim.cmd "
@@ -23,8 +25,8 @@ function! LspStatus() abort
 return ''
 endfunction")
 
-
-(local default-options { :on_attach on-attach :capabilities lsp-status.capabilities })
+(local default-options
+       {:on_attach on-attach :capabilities lsp-status.capabilities})
 
 ; rust
 (nvim-lsp.rust_analyzer.setup default-options)

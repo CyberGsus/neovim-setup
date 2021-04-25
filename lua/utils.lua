@@ -1,11 +1,13 @@
 local function convert_scope(scope)
-  if (scope == "global") then
+  local _0_0 = scope
+  if (_0_0 == "global") then
     return "o"
-  elseif (scope == "buffer") then
+  elseif (_0_0 == "buffer") then
     return "bo"
-  elseif (scope == "window") then
+  elseif (_0_0 == "window") then
     return "wo"
   else
+    local _ = _0_0
     return "o"
   end
 end
@@ -35,7 +37,7 @@ local function make_command(name)
   return (":" .. name .. "<cr>")
 end
 local function map_command(mode, lhs, rhs, more_options_3f)
-  return map(mode, lhs, make_command(rhs, more_options_3f))
+  return map(mode, lhs, make_command(rhs), more_options_3f)
 end
 local function set_global(key, value)
   vim.g[key] = value

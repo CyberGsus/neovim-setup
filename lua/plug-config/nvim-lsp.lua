@@ -2,10 +2,12 @@ local nvim_lsp = require("lspconfig")
 local completion = require("completion")
 local lsp_status = require("lsp-status")
 local function on_attach(client)
-  local _0_0 = client
-  completion.on_attach(_0_0)
-  lsp_status.on_attach(_0_0)
-  return _0_0
+  do
+    local _0_0 = client
+    completion.on_attach(_0_0)
+    lsp_status.on_attach(_0_0)
+  end
+  return nil
 end
 lsp_status.config({current_function = true})
 lsp_status.register_progress()
