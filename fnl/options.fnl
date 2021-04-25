@@ -41,12 +41,4 @@
                         :autoindent true
                         :expandtab true})
 
-; set no expand tab on makefile
-
-(vim.cmd "augroup MakefileSpecial")
-(vim.cmd :autocmd!)
-(vim.cmd "autocmd BufEnter makefile set noet")
-(vim.cmd "autocmd BufLeave makefile set et")
-(vim.cmd "augroup END")
-
 nil

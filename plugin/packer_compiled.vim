@@ -60,6 +60,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/lsp-status.nvim"
   },
+  ["lsp-trouble.nvim"] = {
+    loaded = true,
+    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/lsp-trouble.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/lualine.nvim"
