@@ -5,7 +5,7 @@ LUA_FILES := $(patsubst fnl/%.fnl, lua/%.lua, $(FNL_FILES))
 
 
 lua/%.lua: fnl/%.fnl
-	@fnlfmt/fnlfmt --fix $^
+	@test -e fnlfmt/fnlfmt && fnlfmt/fnlfmt --fix $^
 	@echo "Compiling $^"
 	@mkdir -p $(dir $@) && \
 	fennel --compile $^ > $@ &
