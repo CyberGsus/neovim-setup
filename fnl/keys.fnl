@@ -23,7 +23,7 @@
 (map :v ">" :>gv)
 
 ; :help update
-(mapcmd :n :<leader>w :update {:silent false})
+(mapcmd :n :<leader>w :update)
 
 ; quickfix list, from primeagen's video: https://www.youtube.com/watch?v=IoyW8XYGqjM
 ; global

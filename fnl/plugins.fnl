@@ -38,24 +38,22 @@
 (local packer (require :packer))
 
 (packer.startup (fn packer-startup [use]
-                  (use-pkg :wbthomason/packer.nvim) ; prevent packer from suiciding ; theming
+                  (use-pkg :wbthomason/packer.nvim)
                   (use-pkg :morhetz/gruvbox)
-                  ;(use-pkg :itchyny/lightline.vim)
+                  (use-pkg :phaazon/hop.nvim)
                   (use-pkg :hoob3rt/lualine.nvim
                            {:requires :kyazdani42/nvim-web-devicons})
-                  ; (use-pkg :akinsho/nvim-bufferline.lua { :requires :kyazdani42/nvim-web-devicons })
-                  ; syntax highlight
                   (use-pkg :nvim-treesitter/nvim-treesitter) ; tools
-                  (use-pkg :jiangmiao/auto-pairs) ; tpope essentials
+                  (use-pkg :jiangmiao/auto-pairs)
                   (use-pkg :tpope/vim-repeat)
                   (use-pkg :tpope/vim-surround)
-                  (use-pkg :tpope/vim-fugitive) ; git ; commentary-like
-                  (use-pkg :b3nj5m1n/kommentary) ; moving around
+                  (use-pkg :tpope/vim-fugitive)
+                  (use-pkg :b3nj5m1n/kommentary)
                   (use-pkg :kyazdani42/nvim-tree.lua
                            {:requires :kyazdani42/nvim-web-devicons})
                   (use-pkg :junegunn/fzf {:run vim.fn.fzf#install})
                   (use-pkg :junegunn/fzf.vim)
-                  (use-pkg :unblevable/quick-scope) ; lsp
+                  (use-pkg :unblevable/quick-scope)
                   (use-pkg :nvim-lua/lsp-status.nvim)
                   (use-pkg :neovim/nvim-lspconfig)
                   (use-pkg :nvim-lua/completion-nvim)
@@ -78,6 +76,7 @@
 (setup-config :nvim-lsp)
 (setup-config :nvim-tree)
 (setup-config :treesitter)
+(setup-config :hop)
 ;((. (require :bufferline) :setup))
 
 (setup-keys :fzf)

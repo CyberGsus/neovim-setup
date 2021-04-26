@@ -1,7 +1,5 @@
 (local utils (require :utils))
 
-(local indent 2)
-
 (utils.options :global {:hidden true
                         :encoding :utf-8
                         :ruler true
@@ -35,8 +33,8 @@
                         :signcolumn :number
                         :list true})
 
-(utils.options :buffer {:tabstop indent
-                        :shiftwidth indent
+(utils.options :buffer {:tabstop 2
+                        :shiftwidth 2
                         :smartindent true
                         :autoindent true
                         :expandtab true})
