@@ -1,3 +1,4 @@
+;(import-macros utils :fnl/macros)
 (local utils (require :utils))
 
 (utils.options :global {:hidden true
@@ -6,7 +7,6 @@
                         :pumheight 10
                         :cmdheight 2
                         :splitbelow true
-                        :t_Co :256
                         :smarttab true
                         :ignorecase true
                         :wildmode "list:longest"
@@ -23,7 +23,9 @@
                         :ignorecase true
                         :smartcase true
                         :completeopt "menuone,noinsert,noselect"
-                        :termguicolors true})
+                        :termguicolors false})
+
+; in order to fix a random nvim + nord bug
 
 (utils.options :window {:wrap false
                         :conceallevel 0

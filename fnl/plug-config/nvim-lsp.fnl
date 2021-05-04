@@ -1,6 +1,7 @@
 (local nvim-lsp (require :lspconfig))
 (local completion (require :completion))
 (local lsp-status (require :lsp-status))
+(local utils (require :utils))
 
 (fn on-attach [client]
   (doto client
@@ -28,13 +29,28 @@ endfunction")
 (local default-options
        {:on_attach on-attach :capabilities lsp-status.capabilities})
 
+; don't ask.
+(macro setup-lsp [name options?]
+  `((. nvim-lsp ,name :setup) (utils.merge-tables default-options
+                                                  ,(or options? []))))
+
+(setup-lsp :rust_analyzer)
+(setup-lsp :ccls)
+(setup-lsp :pyls)
+(setup-lsp :metals)
+(setup-lsp :hls)
+(setup-lsp :gopls)
+
+;(nvim-lsp.rust_analyzer.setup default-options)
+
 ; rust
-(nvim-lsp.rust_analyzer.setup default-options)
+; (nvim-lsp.rust_analyzer.setup default-options)
 ; c/cpp
 ; (nvim-lsp.ccls.setup default-options)
 ; python
-(nvim-lsp.pyls.setup default-options)
+;(nvim-lsp.pyls.setup default-options)
 ; scala
-(nvim-lsp.metals.setup default-options)
+;(nvim-lsp.metals.setup default-options)
 ; haskell needs hls: https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#hls
-(nvim-lsp.hls.setup default-options)
+;(nvim-lsp.hls.setup default-options)
+;(nvim-lsp.gopls.setup default-opt)

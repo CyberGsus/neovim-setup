@@ -27,9 +27,9 @@ local function is_in_table(tbl, value)
   return false
 end
 local function options(scope, kvpairs)
-  local scope_tbl = vim[convert_scope(scope)]
+  local scope_name = convert_scope(scope)
   for k, v in pairs(kvpairs) do
-    scope_tbl[k] = v
+    vim[scope_name][k] = v
   end
   return nil
 end

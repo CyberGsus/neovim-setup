@@ -8,7 +8,7 @@ lua/%.lua: fnl/%.fnl
 	@test -e fnlfmt/fnlfmt && fnlfmt/fnlfmt --fix $^
 	@echo "Compiling $^"
 	@mkdir -p $(dir $@) && \
-	fennel --compile $^ > $@ &
+	fennel --compile $^ > $@
 
 
 

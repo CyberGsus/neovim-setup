@@ -87,9 +87,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/fzf.vim"
   },
-  gruvbox = {
+  harpoon = {
     loaded = true,
-    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/gruvbox"
+    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/harpoon"
   },
   ["hop.nvim"] = {
     loaded = true,
@@ -98,6 +98,10 @@ _G.packer_plugins = {
   kommentary = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/kommentary"
+  },
+  ["lsp-colors.nvim"] = {
+    loaded = true,
+    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim"
   },
   ["lsp-status.nvim"] = {
     loaded = true,
@@ -110,6 +114,14 @@ _G.packer_plugins = {
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/lualine.nvim"
+  },
+  ["nord-vim"] = {
+    loaded = true,
+    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/nord-vim"
+  },
+  ["nvcode-color-schemes.vim"] = {
+    loaded = true,
+    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/nvcode-color-schemes.vim"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -130,6 +142,10 @@ _G.packer_plugins = {
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/packer.nvim"
+  },
+  ["plenary.nvim"] = {
+    loaded = true,
+    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/plenary.nvim"
   },
   ["quick-scope"] = {
     loaded = true,

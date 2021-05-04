@@ -11,7 +11,7 @@
          endfunction")
 
 (utils.set-global :lightline
-                  {:colorscheme :gruvbox
+                  {:colorscheme :nord
                    :active {:left [[:mode :paste]
                                    [:gitbranch :filename :modified :lsp]]
                             :right [[:lineinfo] [:filetype] [:charvaluehex]]}

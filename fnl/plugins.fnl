@@ -39,11 +39,15 @@
 
 (packer.startup (fn packer-startup [use]
                   (use-pkg :wbthomason/packer.nvim)
-                  (use-pkg :morhetz/gruvbox)
+                  (use-pkg :arcticicestudio/nord-vim)
                   (use-pkg :phaazon/hop.nvim)
+                  (use-pkg :ThePrimeagen/harpoon
+                           {:requires :nvim-lua/plenary.nvim})
                   (use-pkg :hoob3rt/lualine.nvim
                            {:requires :kyazdani42/nvim-web-devicons})
-                  (use-pkg :nvim-treesitter/nvim-treesitter) ; tools
+                  (use-pkg :nvim-treesitter/nvim-treesitter
+                           {:requires :christianchiarulli/nvcode-color-schemes.vim})
+                  ; tools
                   (use-pkg :jiangmiao/auto-pairs)
                   (use-pkg :tpope/vim-repeat)
                   (use-pkg :tpope/vim-surround)
@@ -59,6 +63,7 @@
                   (use-pkg :nvim-lua/completion-nvim)
                   (use-pkg :folke/lsp-trouble.nvim
                            {:requires :kyazdani42/nvim-web-devicons})
+                  (use-pkg :folke/lsp-colors.nvim)
                   nil))
 
 ; after startup
@@ -77,6 +82,8 @@
 (setup-config :nvim-tree)
 (setup-config :treesitter)
 (setup-config :hop)
+(setup-config :harpoon)
+(setup-config :treesitter)
 ;((. (require :bufferline) :setup))
 
 (setup-keys :fzf)
@@ -84,5 +91,7 @@
 (setup-keys :nvim-tree)
 (setup-keys :vim-fugitive)
 (setup-keys :lsp-trouble)
+(setup-keys :hop)
+(setup-keys :harpoon)
 
 nil

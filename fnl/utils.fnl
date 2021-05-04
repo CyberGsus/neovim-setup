@@ -20,9 +20,9 @@
   false)
 
 (fn options [scope kvpairs]
-  (let [scope-tbl (. vim (convert-scope scope))]
+  (let [scope-name (convert-scope scope)]
     (each [k v (pairs kvpairs)]
-      (tset scope-tbl k v))))
+      (tset vim scope-name k v))))
 
 ; gets a name (string) and
 ; converts it to a command string,
