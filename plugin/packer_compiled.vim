@@ -147,6 +147,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/plenary.nvim"
   },
+  ["popup.nvim"] = {
+    loaded = true,
+    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/popup.nvim"
+  },
   ["quick-scope"] = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/quick-scope"

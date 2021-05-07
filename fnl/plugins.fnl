@@ -42,7 +42,8 @@
                   (use-pkg :arcticicestudio/nord-vim)
                   (use-pkg :phaazon/hop.nvim)
                   (use-pkg :ThePrimeagen/harpoon
-                           {:requires :nvim-lua/plenary.nvim})
+                           {:requires [:nvim-lua/plenary.nvim
+                                       :nvim-lua/popup.nvim]})
                   (use-pkg :hoob3rt/lualine.nvim
                            {:requires :kyazdani42/nvim-web-devicons})
                   (use-pkg :nvim-treesitter/nvim-treesitter

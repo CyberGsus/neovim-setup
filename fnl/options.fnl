@@ -23,7 +23,8 @@
                         :ignorecase true
                         :smartcase true
                         :completeopt "menuone,noinsert,noselect"
-                        :termguicolors false})
+                        :t_Co :256
+                        :termguicolors true})
 
 ; in order to fix a random nvim + nord bug
 
