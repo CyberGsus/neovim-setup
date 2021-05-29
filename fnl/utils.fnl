@@ -1,12 +1,3 @@
-; instead of 'o', 'bo' and 'wo' I have 'global' 'buffer' and 'window' which increase
-; readability
-(fn convert-scope [scope]
-  (match scope
-    :global :o
-    :buffer :bo
-    :window :wo
-    _ :o))
-
 (fn map [mode lhs rhs more-options?]
   (var options {:noremap true :silent true})
   (if more-options?
@@ -20,9 +11,13 @@
   false)
 
 (fn options [scope kvpairs]
-  (let [scope-name (convert-scope scope)]
+  (let [api-option-infix (match scope
+                           :global ""
+                           :buffer :_buf
+                           :window :_win)
+        api-call (. vim :api (.. :nvim api-option-infix :set_option))]
     (each [k v (pairs kvpairs)]
-      (tset vim scope-name k v))))
+      (api-call k v))))
 
 ; gets a name (string) and
 ; converts it to a command string,
