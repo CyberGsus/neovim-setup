@@ -40,6 +40,7 @@ endfunction")
 (setup-lsp :metals)
 (setup-lsp :hls)
 (setup-lsp :gopls)
+(setup-lsp :tsserver)
 
 ;(nvim-lsp.rust_analyzer.setup default-options)
 

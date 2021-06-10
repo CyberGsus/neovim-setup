@@ -35,6 +35,12 @@
         `(use ,final-config))
       `(use ,name)))
 
+(macro get-config [name]
+  `(require ,(.. :plug-config/ name)))
+
+(macro get-keys [name]
+  `(require ,(.. :plug-config/keys/ name)))
+
 (local packer (require :packer))
 
 (packer.startup (fn packer-startup [use]
@@ -64,35 +70,26 @@
                   (use-pkg :nvim-lua/completion-nvim)
                   (use-pkg :folke/lsp-trouble.nvim
                            {:requires :kyazdani42/nvim-web-devicons})
-                  (use-pkg :folke/lsp-colors.nvim)
+                  (use-pkg :folke/lsp-colors.nvim) ; fix sw and ts
                   nil))
 
-; after startup
-(macro setup-config [name]
-  `(require ,(.. :plug-config/ name)))
+(get-config :kommentary)
+;(get-config :eviline)
+(get-config :lualine)
+(get-config :nvim-lsp)
+(get-config :nvim-tree)
+(get-config :treesitter)
+(get-config :hop)
+(get-config :harpoon)
 
-(macro setup-keys [name]
-  `(require ,(.. :plug-config/keys/ name)))
+(get-keys :fzf)
+(get-keys :lsp)
+(get-keys :nvim-tree)
+(get-keys :vim-fugitive)
+(get-keys :lsp-trouble)
+(get-keys :hop)
+(get-keys :harpoon)
 
-(setup-config :theme)
-(setup-config :kommentary)
-;(setup-config :lightline)
-;(setup-config :eviline)
-(setup-config :lualine)
-(setup-config :nvim-lsp)
-(setup-config :nvim-tree)
-(setup-config :treesitter)
-(setup-config :hop)
-(setup-config :harpoon)
-(setup-config :treesitter)
-;((. (require :bufferline) :setup))
-
-(setup-keys :fzf)
-(setup-keys :lsp)
-(setup-keys :nvim-tree)
-(setup-keys :vim-fugitive)
-(setup-keys :lsp-trouble)
-(setup-keys :hop)
-(setup-keys :harpoon)
+(get-config :theme)
 
 nil
