@@ -10,43 +10,14 @@
       (lua "return true")))
   false)
 
-(fn tbl-map [f kvpairs]
-  (var new-tbl {})
-  (each [k v (pairs kvpairs)]
-    (tset new-tbl k (f v)))
-  new-tbl)
-
-(fn tbl-filter [f kvpairs]
-  (var new-tbl {})
-  (each [k v (pairs kvpairs)]
-    (when (f v)
-      (tset new-tbl k v)))
-  new-tbl)
-
-(fn tbl-filter-map [f kvpairs]
-  (var new-tbl {})
-  (each [k v (pairs kvpairs)]
-    (let [result (f v)]
-      (when (not= result nil)
-        (tset new-tbl k result))))
-  new-tbl)
-
-(fn get-scope [name]
-  (. vim (match name
-           :global :go
-           :window :wo
-           :buffer :bo
-           _ "")))
-
-(macro override-tbl [src new]
-  `(each [key# value# (pairs ,new)]
-     (tset ,src key# value#)))
-
-(fn options [kvpairs ...]
-  (override-tbl vim.o kvpairs)
-  (let [extra-scopes (tbl-filter-map get-scope [...])] ; apply the options in a global context
-    (each [_ scope (ipairs extra-scopes)]
-      (override-tbl scope kvpairs))))
+(fn options [scope kvpairs]
+  (let [api-option-infix (match scope
+                           :global ""
+                           :buffer :_buf
+                           :window :_win)
+        api-call (. vim :api (.. :nvim api-option-infix :set_option))]
+    (each [k v (pairs kvpairs)]
+      (api-call k v))))
 
 ; gets a name (string) and
 ; converts it to a command string,
@@ -61,7 +32,8 @@
   (tset vim.g key value))
 
 (fn set-globals [kvpairs]
-  (override-tbl vim.g kvpairs))
+  (each [k v (pairs kvpairs)]
+    (tset vim.g k v)))
 
 ; gets a list of prefixes, e.g [ :nvim :tree ] and a table of
 ; options such as { :a 1 :b 2 } then it returns { :nvim_tree_a 1 :nvim_tree_b 2 }

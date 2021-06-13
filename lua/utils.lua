@@ -1,3 +1,16 @@
+local function convert_scope(scope)
+  local _0_0 = scope
+  if (_0_0 == "global") then
+    return "o"
+  elseif (_0_0 == "buffer") then
+    return "bo"
+  elseif (_0_0 == "window") then
+    return "wo"
+  else
+    local _ = _0_0
+    return "o"
+  end
+end
 local function map(mode, lhs, rhs, more_options_3f)
   local options = {noremap = true, silent = true}
   if more_options_3f then
@@ -13,58 +26,10 @@ local function is_in_table(tbl, value)
   end
   return false
 end
-local function tbl_map(f, kvpairs)
-  local new_tbl = {}
+local function options(scope, kvpairs)
+  local scope_name = convert_scope(scope)
   for k, v in pairs(kvpairs) do
-    new_tbl[k] = f(v)
-  end
-  return new_tbl
-end
-local function tbl_filter(f, kvpairs)
-  local new_tbl = {}
-  for k, v in pairs(kvpairs) do
-    if f(v) then
-      new_tbl[k] = v
-    end
-  end
-  return new_tbl
-end
-local function tbl_filter_map(f, kvpairs)
-  local new_tbl = {}
-  for k, v in pairs(kvpairs) do
-    local result = f(v)
-    if (result ~= nil) then
-      new_tbl[k] = result
-    end
-  end
-  return new_tbl
-end
-local function get_scope(name)
-  local _1_
-  do
-    local _0_0 = name
-    if (_0_0 == "global") then
-      _1_ = "go"
-    elseif (_0_0 == "window") then
-      _1_ = "wo"
-    elseif (_0_0 == "buffer") then
-      _1_ = "bo"
-    else
-      local _ = _0_0
-      _1_ = ""
-    end
-  end
-  return vim[_1_]
-end
-local function options(kvpairs, ...)
-  for key_0_, value_0_ in pairs(kvpairs) do
-    vim.o[key_0_] = value_0_
-  end
-  local extra_scopes = tbl_filter_map(get_scope, {...})
-  for _, scope in ipairs(extra_scopes) do
-    for key_0_, value_0_ in pairs(kvpairs) do
-      scope[key_0_] = value_0_
-    end
+    vim[scope_name][k] = v
   end
   return nil
 end
@@ -79,8 +44,8 @@ local function set_global(key, value)
   return nil
 end
 local function set_globals(kvpairs)
-  for key_0_, value_0_ in pairs(kvpairs) do
-    vim.g[key_0_] = value_0_
+  for k, v in pairs(kvpairs) do
+    vim.g[k] = v
   end
   return nil
 end

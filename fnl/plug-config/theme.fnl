@@ -1,14 +1,11 @@
 (local utils (require :utils))
 
-(local options {:italic 1})
+(vim.cmd "colorscheme nord")
 
-(macro colorscheme [name]
-  `(vim.api.nvim_command ,(.. "colorscheme " name)))
+(local options {:italic 1})
 
 (->> options
      (utils.prefix-options [:nord])
      (utils.set-globals))
-
-(colorscheme :nord)
 
 nil
