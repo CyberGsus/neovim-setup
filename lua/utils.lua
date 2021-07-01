@@ -1,16 +1,3 @@
-local function convert_scope(scope)
-  local _0_0 = scope
-  if (_0_0 == "global") then
-    return "o"
-  elseif (_0_0 == "buffer") then
-    return "bo"
-  elseif (_0_0 == "window") then
-    return "wo"
-  else
-    local _ = _0_0
-    return "o"
-  end
-end
 local function map(mode, lhs, rhs, more_options_3f)
   local options = {noremap = true, silent = true}
   if more_options_3f then
@@ -27,9 +14,36 @@ local function is_in_table(tbl, value)
   return false
 end
 local function options(scope, kvpairs)
-  local scope_name = convert_scope(scope)
+  local scope_index
+  do
+    local _0_ = scope
+    if (_0_ == "global") then
+      scope_index = "o"
+    elseif (_0_ == "buffer") then
+      scope_index = "bo"
+    elseif (_0_ == "window") then
+      scope_index = "wo"
+    else
+    scope_index = nil
+    end
+  end
+  local tset_fn
+  if (scope ~= "global") then
+    local function _1_(k, v)
+      vim[scope_index][k] = v
+      vim.o[k] = v
+      return nil
+    end
+    tset_fn = _1_
+  else
+    local function _1_(k, v)
+      vim[scope_index][k] = v
+      return nil
+    end
+    tset_fn = _1_
+  end
   for k, v in pairs(kvpairs) do
-    vim[scope_name][k] = v
+    tset_fn(k, v)
   end
   return nil
 end
