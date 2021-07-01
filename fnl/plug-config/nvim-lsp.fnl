@@ -2,7 +2,6 @@
 (local completion (require :completion))
 (local lsp-status (require :lsp-status))
 (local utils (require :utils))
-(local lsp-util (require :lspconfig/util))
 
 (fn on-attach [client]
   (doto client
@@ -31,24 +30,16 @@ endfunction")
        {:on_attach on-attach :capabilities lsp-status.capabilities})
 
 ; don't ask.
-(macro setup-lsp [name options-override?]
-  (local options (if options-override?
-                     `(utils.merge-tables default-options ,options-override?)
-                     `default-options))
-  `((. nvim-lsp ,name :setup) ,options))
+(macro setup-lsp [name options?]
+  `((. nvim-lsp ,name :setup) (utils.merge-tables default-options
+                                                  ,(or options? []))))
 
-;; use clippy
-(setup-lsp :rust_analyzer
-           {:settings {:rust-analyzer {:checkOnSave {:command :clippy}}}})
-
+(setup-lsp :rust_analyzer)
 (setup-lsp :ccls)
 (setup-lsp :pyls)
 (setup-lsp :metals)
 (setup-lsp :hls)
 (setup-lsp :gopls)
-(setup-lsp :clangd
-           {:settings {:root_dir (lsp-util.root_pattern :build
-                                                        :compile_commaonds.json)}})
 
 ;(nvim-lsp.rust_analyzer.setup default-options)
 

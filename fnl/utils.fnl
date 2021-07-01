@@ -11,28 +11,13 @@
   false)
 
 (fn options [scope kvpairs]
-  (let [scope-index (match scope
-                      :global :o
-                      :buffer :bo
-                      :window :wo)
-        tset-fn (if (not= scope :global)
-                    (fn [k v]
-                      (tset vim scope-index k v)
-                      (tset vim.o k v))
-                    (fn [k v]
-                      (tset vim scope-index k v)))]
+  (let [api-option-infix (match scope
+                           :global ""
+                           :buffer :_buf
+                           :window :_win)
+        api-call (. vim :api (.. :nvim api-option-infix :set_option))]
     (each [k v (pairs kvpairs)]
-      (tset-fn k v))))
-
-; (fn options [scope kvpairs]
-;   (print "scope:" scope)
-;   (let [api-option-infix (match scope
-;                            :global ""
-;                            :buffer :_buf
-;                            :window :_win)
-;         api-call (. vim :api (.. :nvim api-option-infix :_set_option))]
-;     (each [k v (pairs kvpairs)]
-;       (api-call k v))))
+      (api-call k v))))
 
 ; gets a name (string) and
 ; converts it to a command string,

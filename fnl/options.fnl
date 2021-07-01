@@ -19,12 +19,11 @@
                         :timeoutlen 500
                         :clipboard :unnamedplus
                         :mouse :nicr
-                        :guicursor ""
                         :hlsearch false
                         :ignorecase true
                         :smartcase true
                         :completeopt "menuone,noinsert,noselect"
-                        ; :t_Co :256
+                        :t_Co :256
                         :termguicolors true})
 
 ; in order to fix a random nvim + nord bug

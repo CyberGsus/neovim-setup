@@ -4,8 +4,14 @@
 
 ; set python interpreter
 
-(require :plugins)
-(require :options)
 (require :keys)
+
+; keymap
+(require :plugins)
+
+; plugin config.
+(require :options)
+
+; general options
 
 nil
