@@ -59,6 +59,7 @@
                   (use-pkg :folke/lsp-trouble.nvim
                            {:requires :kyazdani42/nvim-web-devicons})
                   (use-pkg :folke/lsp-colors.nvim)
+                  (use-pkg :mbbill/undotree)
                   nil))
 
 ; after startup

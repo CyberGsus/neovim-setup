@@ -28,6 +28,7 @@ local function packer_startup(use)
   use("nvim-lua/completion-nvim")
   use({"folke/lsp-trouble.nvim", requires = "kyazdani42/nvim-web-devicons"})
   use("folke/lsp-colors.nvim")
+  use("mbbill/undotree")
   return nil
 end
 packer.startup(packer_startup)
