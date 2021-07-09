@@ -41,24 +41,18 @@
                   (use-pkg :wbthomason/packer.nvim)
                   (use-pkg :arcticicestudio/nord-vim)
                   (use-pkg :phaazon/hop.nvim)
-                  (use-pkg :ThePrimeagen/harpoon
-                           {:requires [:nvim-lua/plenary.nvim
-                                       :nvim-lua/popup.nvim]})
+                  (use-pkg :nvim-treesitter/nvim-treesitter)
                   (use-pkg :hoob3rt/lualine.nvim
                            {:requires :kyazdani42/nvim-web-devicons})
-                  (use-pkg :nvim-treesitter/nvim-treesitter
-                           {:requires :christianchiarulli/nvcode-color-schemes.vim})
-                  ; tools
+                  (use-pkg :kyazdani42/nvim-tree.lua
+                           {:requires :kyazdani42/nvim-web-devicons})
                   (use-pkg :jiangmiao/auto-pairs)
                   (use-pkg :tpope/vim-repeat)
                   (use-pkg :tpope/vim-surround)
                   (use-pkg :tpope/vim-fugitive)
                   (use-pkg :b3nj5m1n/kommentary)
-                  (use-pkg :kyazdani42/nvim-tree.lua
-                           {:requires :kyazdani42/nvim-web-devicons})
                   (use-pkg :junegunn/fzf {:run vim.fn.fzf#install})
                   (use-pkg :junegunn/fzf.vim)
-                  (use-pkg :unblevable/quick-scope)
                   (use-pkg :nvim-lua/lsp-status.nvim)
                   (use-pkg :neovim/nvim-lspconfig)
                   (use-pkg :nvim-lua/completion-nvim)
@@ -76,23 +70,16 @@
 
 (setup-config :theme)
 (setup-config :kommentary)
-;(setup-config :lightline)
-;(setup-config :eviline)
 (setup-config :lualine)
 (setup-config :nvim-lsp)
-(setup-config :nvim-tree)
-(setup-config :treesitter)
 (setup-config :hop)
-(setup-config :harpoon)
 (setup-config :treesitter)
-;((. (require :bufferline) :setup))
 
 (setup-keys :fzf)
 (setup-keys :lsp)
-(setup-keys :nvim-tree)
 (setup-keys :vim-fugitive)
 (setup-keys :lsp-trouble)
 (setup-keys :hop)
-(setup-keys :harpoon)
+(setup-keys :nvim-tree)
 
 nil
