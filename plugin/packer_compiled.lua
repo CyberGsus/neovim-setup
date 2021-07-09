@@ -1,17 +1,14 @@
-" Automatically generated packer.nvim plugin loader code
+-- Automatically generated packer.nvim plugin loader code
 
-if !has('nvim-0.5')
-  echohl WarningMsg
-  echom "Invalid Neovim version for packer.nvim!"
-  echohl None
-  finish
-endif
+if vim.api.nvim_call_function('has', {'nvim-0.5'}) ~= 1 then
+  vim.api.nvim_command('echohl WarningMsg | echom "Invalid Neovim version for packer.nvim! | echohl None"')
+  return
+end
 
-packadd packer.nvim
+vim.api.nvim_command('packadd packer.nvim')
 
-try
+local no_errors = pcall(function()
 
-lua << END
   local time
   local profile_info
   local should_profile = false
@@ -47,8 +44,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/cyber/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/cyber/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/cyber/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/cyber/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/cyber/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/home/cyber/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?.lua;/home/cyber/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?/init.lua;/home/cyber/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?.lua;/home/cyber/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/cyber/.cache/nvim/packer_hererocks/2.0.5/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -88,10 +85,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/fzf.vim"
   },
-  harpoon = {
-    loaded = true,
-    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/harpoon"
-  },
   ["hop.nvim"] = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/hop.nvim"
@@ -120,10 +113,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/nord-vim"
   },
-  ["nvcode-color-schemes.vim"] = {
-    loaded = true,
-    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/nvcode-color-schemes.vim"
-  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
@@ -144,18 +133,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/packer.nvim"
   },
-  ["plenary.nvim"] = {
-    loaded = true,
-    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/plenary.nvim"
-  },
-  ["popup.nvim"] = {
-    loaded = true,
-    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/popup.nvim"
-  },
-  ["quick-scope"] = {
-    loaded = true,
-    path = "/home/cyber/.local/share/nvim/site/pack/packer/start/quick-scope"
-  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/home/cyber/.local/share/nvim/site/pack/packer/start/vim-fugitive"
@@ -173,11 +150,8 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 if should_profile then save_profiles() end
 
-END
+end)
 
-catch
-  echohl ErrorMsg
-  echom "Error in packer_compiled: " .. v:exception
-  echom "Please check your config for correctness"
-  echohl None
-endtry
+if not no_errors then
+  vim.api.nvim_command('echohl ErrorMsg | echom "Error in packer_compiled: ".v:exception | echom "Please check your config for correctness" | echohl None')
+end
